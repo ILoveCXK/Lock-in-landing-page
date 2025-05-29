@@ -1,3 +1,4 @@
+// Force deployment update - Vercel sync fix
 'use client'
 
 import { Button } from "@/components/ui/button"
