@@ -1,20 +1,12 @@
 {
-  "version": 2,
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "devCommand": "next dev",
   "framework": "nextjs",
-  "builds": [
+  "rewrites": [
     {
-      "src": "package.json",
-      "use": "@vercel/next@canary"
+      "source": "/(.*)",
+      "destination": "/"
     }
-  ],
-  "build": {
-    "env": {
-      "NODE_VERSION": "18.x"
-    }
-  },
-  "git": {
-    "deploymentEnabled": {
-      "main": true
-    }
-  }
+  ]
 } 

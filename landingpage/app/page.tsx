@@ -362,9 +362,11 @@ export default function Page() {
             {/* Logo with enhanced styling */}
             <div className="mb-6 relative">
               <div className="absolute -inset-6 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 blur-md rounded-full opacity-75"></div>
-              <img 
+              <Image 
                 src="/images/lockin-logo.svg" 
                 alt="Lock-in Logo" 
+                width={160}
+                height={160}
                 className="w-32 h-32 md:w-40 md:h-40 mx-auto object-contain relative z-10 animate-pulse-slow"
               />
             </div>
@@ -459,7 +461,7 @@ export default function Page() {
                       </div>
                     </div>
                     <h3 className="text-xl font-bold animate-text-gradient bg-gradient-to-r from-indigo-300 via-purple-300 to-indigo-200 bg-clip-text text-transparent">52:14 Remaining</h3>
-                    <p className="text-sm text-indigo-200/70">You're doing great! Keep focusing.</p>
+                    <p className="text-sm text-indigo-200/70">You&apos;re doing great! Keep focusing.</p>
                         </div>
                   
                   <div className="bg-gradient-to-r from-indigo-900/50 to-purple-900/50 rounded-xl p-5 mb-6 shadow-sm relative overflow-hidden">
@@ -482,7 +484,7 @@ export default function Page() {
                       <div className="w-full bg-indigo-950/50 rounded-full h-2 overflow-hidden">
                         <div className="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full" style={{ width: '94%' }}></div>
                       </div>
-                    </div>
+                        </div>
                       </div>
 
                   <div className="grid grid-cols-2 gap-4 mb-6">
@@ -591,7 +593,7 @@ export default function Page() {
                   Unlike traditional timers, Lock-in uses AI to analyze your work patterns and provide personalized focus coaching.
                 </p>
               </div>
-              
+
               {/* Feature 2 */}
               <div className="bg-gradient-to-br from-[#1E1940]/80 to-[#28204F]/80 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-6 shadow-[0_8px_30px_rgba(92,71,255,0.15)] group hover:shadow-[0_8px_30px_rgba(92,71,255,0.25)] transition-all duration-500 scroll-animation">
                 <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-6 shadow-lg shadow-purple-600/20 group-hover:shadow-purple-600/30 group-hover:scale-110 transition-all duration-500">
@@ -813,7 +815,7 @@ export default function Page() {
             
             <div className="mt-12 text-center">
               <p className="text-indigo-200/60 text-sm max-w-xl mx-auto">
-                By joining our waitlist, you'll be among the first to experience Lock-in when we launch. 
+                By joining our waitlist, you&apos;ll be among the first to experience Lock-in when we launch. 
                 Early supporters will receive special benefits and pricing.
               </p>
             </div>
