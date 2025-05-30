@@ -34,7 +34,7 @@ const features = [
       </svg>
     ),
     title: "Smart Nudges",
-    description: "Detect focus drift and gently pull you back on task with personalized nudges that won't disrupt your workflow."
+    description: "Detect drift and gently pull users back on task."
   },
   {
     icon: (
@@ -47,7 +47,7 @@ const features = [
       </svg>
     ),
     title: "Adaptive Break Coaching",
-    description: "Suggests micro-stretches and breathing exercises when productivity dips, helping you recharge at the right moment."
+    description: "Suggests micro‑stretches & breathing when productivity dips."
   },
   {
     icon: (
@@ -57,7 +57,7 @@ const features = [
       </svg>
     ),
     title: "Session Insights",
-    description: "End-of-focus reports with AI recommendations for your next focus session, helping you improve over time."
+    description: "End‑of‑focus reports + AI recommendations for the next round."
   }
 ];
 
@@ -577,92 +577,20 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              {/* Feature 1 */}
-              <div className="bg-gradient-to-br from-[#1E1940]/80 to-[#28204F]/80 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-6 shadow-[0_8px_30px_rgba(92,71,255,0.15)] group hover:shadow-[0_8px_30px_rgba(92,71,255,0.25)] transition-all duration-500 scroll-animation">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-6 shadow-lg shadow-purple-600/20 group-hover:shadow-purple-600/30 group-hover:scale-110 transition-all duration-500">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5l6.74-6.76z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <line x1="16" y1="8" x2="2" y2="22" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <line x1="17.5" y1="15" x2="9" y2="15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {features.map((feature, index) => (
+                <div key={index} className="bg-gradient-to-br from-[#1E1940]/80 to-[#28204F]/80 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-6 shadow-[0_8px_30px_rgba(92,71,255,0.15)] group hover:shadow-[0_8px_30px_rgba(92,71,255,0.25)] transition-all duration-500 scroll-animation">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-6 shadow-lg shadow-purple-600/20 group-hover:shadow-purple-600/30 group-hover:scale-110 transition-all duration-500">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-white group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-indigo-300 group-hover:via-purple-300 group-hover:to-indigo-200 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                    {feature.title}
+                  </h3>
+                  <p className="text-indigo-200/80 leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-indigo-300 group-hover:via-purple-300 group-hover:to-indigo-200 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                  AI Coaching
-                </h3>
-                <p className="text-indigo-200/80 leading-relaxed">
-                  Unlike traditional timers, Lock-in uses AI to analyze your work patterns and provide personalized focus coaching.
-                </p>
-              </div>
-
-              {/* Feature 2 */}
-              <div className="bg-gradient-to-br from-[#1E1940]/80 to-[#28204F]/80 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-6 shadow-[0_8px_30px_rgba(92,71,255,0.15)] group hover:shadow-[0_8px_30px_rgba(92,71,255,0.25)] transition-all duration-500 scroll-animation">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-6 shadow-lg shadow-purple-600/20 group-hover:shadow-purple-600/30 group-hover:scale-110 transition-all duration-500">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="7" width="20" height="15" rx="2" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-indigo-300 group-hover:via-purple-300 group-hover:to-indigo-200 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                  Native macOS Experience
-                </h3>
-                <p className="text-indigo-200/80 leading-relaxed">
-                  Built specifically for macOS, Lock-in integrates seamlessly with your workflow for a distraction-free experience.
-                </p>
-              </div>
-
-              {/* Feature 3 */}
-              <div className="bg-gradient-to-br from-[#1E1940]/80 to-[#28204F]/80 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-6 shadow-[0_8px_30px_rgba(92,71,255,0.15)] group hover:shadow-[0_8px_30px_rgba(92,71,255,0.25)] transition-all duration-500 scroll-animation">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-6 shadow-lg shadow-purple-600/20 group-hover:shadow-purple-600/30 group-hover:scale-110 transition-all duration-500">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M2 17l10 5 10-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M2 12l10 5 10-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-indigo-300 group-hover:via-purple-300 group-hover:to-indigo-200 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                  Focus Analytics
-                </h3>
-                <p className="text-indigo-200/80 leading-relaxed">
-                  Track your productivity with detailed analytics that help you understand your focus patterns and improve over time.
-                </p>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Feature 4 */}
-              <div className="bg-gradient-to-br from-[#1E1940]/80 to-[#28204F]/80 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-6 shadow-[0_8px_30px_rgba(92,71,255,0.15)] group hover:shadow-[0_8px_30px_rgba(92,71,255,0.25)] transition-all duration-500 scroll-animation">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-6 shadow-lg shadow-purple-600/20 group-hover:shadow-purple-600/30 group-hover:scale-110 transition-all duration-500">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-indigo-300 group-hover:via-purple-300 group-hover:to-indigo-200 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                  Smart Notifications
-                </h3>
-                <p className="text-indigo-200/80 leading-relaxed">
-                  Lock-in intelligently manages your notifications, allowing only the most important ones to reach you during focus sessions.
-                </p>
-              </div>
-
-              {/* Feature 5 */}
-              <div className="bg-gradient-to-br from-[#1E1940]/80 to-[#28204F]/80 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-6 shadow-[0_8px_30px_rgba(92,71,255,0.15)] group hover:shadow-[0_8px_30px_rgba(92,71,255,0.25)] transition-all duration-500 scroll-animation">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-6 shadow-lg shadow-purple-600/20 group-hover:shadow-purple-600/30 group-hover:scale-110 transition-all duration-500">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="4" y1="9" x2="20" y2="9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <line x1="4" y1="15" x2="20" y2="15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <line x1="10" y1="3" x2="8" y2="21" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <line x1="16" y1="3" x2="14" y2="21" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-indigo-300 group-hover:via-purple-300 group-hover:to-indigo-200 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                  Customizable Focus Modes
-                </h3>
-                <p className="text-indigo-200/80 leading-relaxed">
-                  Create custom focus modes for different types of work, with personalized settings for each project or task category.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </section>
