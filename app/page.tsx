@@ -296,7 +296,7 @@ export default function Page() {
           <Link href="/" className="flex items-center gap-2">
             <div className="relative w-8 h-8">
               <Image 
-                src="/images/lockin-logo.svg"
+                src="/logo_transparent_v2.svg"
                 alt="Lock-in"
                 fill
                 className="object-contain"
@@ -364,7 +364,7 @@ export default function Page() {
             <div className="mb-6 relative">
               <div className="absolute -inset-6 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 blur-md rounded-full opacity-75"></div>
               <Image 
-                src="/images/lockin-logo.svg" 
+                src="/logo_transparent_v2.svg" 
                 alt="Lock-in Logo" 
                 width={160}
                 height={160}
@@ -880,7 +880,7 @@ export default function Page() {
               <Link href="/" className="flex items-center gap-2">
                 <div className="relative w-8 h-8">
                   <Image 
-                    src="/images/lockin-logo.svg"
+                    src="/logo_transparent_v2.svg"
                     alt="Lock-in"
                     fill
                     className="object-contain"
