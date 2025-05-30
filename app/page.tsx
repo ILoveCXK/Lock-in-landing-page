@@ -102,7 +102,7 @@ export default function Page() {
   }, []);
 
   useEffect(() => {
-    // Custom CSS for tech grid
+    // Custom CSS for tech grid and enhanced logo animations
     const styleElement = document.createElement('style');
     styleElement.textContent = `
       .tech-grid {
@@ -141,6 +141,92 @@ export default function Page() {
       .scroll-animation.animate-in {
         opacity: 1;
         transform: translateY(0);
+      }
+
+      /* Enhanced logo animations */
+      @keyframes logo-glow {
+        0%, 100% {
+          box-shadow: 0 0 20px rgba(99, 102, 241, 0.3), 0 0 40px rgba(124, 58, 237, 0.2);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(99, 102, 241, 0.5), 0 0 60px rgba(124, 58, 237, 0.3);
+        }
+      }
+
+      @keyframes logo-float {
+        0%, 100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-8px) rotate(1deg);
+        }
+        50% {
+          transform: translateY(-12px) rotate(0deg);
+        }
+        75% {
+          transform: translateY(-4px) rotate(-1deg);
+        }
+      }
+
+      @keyframes logo-spin-subtle {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes logo-scale-breath {
+        0%, 100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .logo-glow {
+        animation: logo-glow 4s ease-in-out infinite;
+      }
+
+      .logo-float {
+        animation: logo-float 6s ease-in-out infinite;
+      }
+
+      .logo-spin-subtle {
+        animation: logo-spin-subtle 20s linear infinite;
+      }
+
+      .logo-scale-breath {
+        animation: logo-scale-breath 3s ease-in-out infinite;
+      }
+
+      .logo-container {
+        position: relative;
+        overflow: visible;
+      }
+
+      .logo-container::before {
+        content: '';
+        position: absolute;
+        inset: -4px;
+        background: linear-gradient(45deg, 
+          rgba(99, 102, 241, 0.1), 
+          rgba(124, 58, 237, 0.1), 
+          rgba(168, 85, 247, 0.1), 
+          rgba(99, 102, 241, 0.1)
+        );
+        background-size: 300% 300%;
+        border-radius: inherit;
+        animation: text-gradient 4s ease infinite;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .logo-container:hover::before {
+        opacity: 1;
       }
     `;
     document.head.appendChild(styleElement);
@@ -290,16 +376,18 @@ export default function Page() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 py-4 px-6 transition-all duration-300 backdrop-blur-md bg-[#0F0C1F]/80 border-b border-indigo-500/20">
         <div className="container mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="relative w-8 h-8">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="logo-container relative w-10 h-10 rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <Image 
-                src="/logo_transparent_v2.svg"
+                src="/Lock-in.svg"
                 alt="Lock-in"
                 fill
-                className="object-contain rounded-lg"
+                className="object-contain p-1.5 relative z-10 rounded-xl"
               />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <span className="text-xl font-bold text-white">Lock-in</span>
+            <span className="text-xl font-bold text-white group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-indigo-300 group-hover:via-purple-300 group-hover:to-indigo-200 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Lock-in</span>
           </Link>
           
           <nav className="hidden md:flex items-center space-x-8">
@@ -334,7 +422,7 @@ export default function Page() {
             <div className="hero-glow"></div>
             
             {/* Tech-inspired grid background */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(114,88,167,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(114,88,167,0.06)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+            <div className="tech-grid absolute inset-0"></div>
             
             {/* Floating particles */}
             <div className="absolute inset-0 overflow-hidden">
@@ -357,17 +445,22 @@ export default function Page() {
           </div>
 
           <div className="max-w-[1200px] mx-auto text-center relative z-10">
-            {/* Logo with enhanced styling */}
-            <div className="mb-6 relative">
-              <div className="absolute -inset-6 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 blur-md rounded-full opacity-75"></div>
-              <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-500/10 to-purple-500/10 backdrop-blur-sm border border-indigo-400/20 shadow-xl shadow-purple-500/20">
+            {/* Enhanced Hero Logo */}
+            <div className="mb-8 relative">
+              <div className="logo-container relative w-40 h-40 md:w-48 md:h-48 mx-auto rounded-xl" style={{ filter: 'drop-shadow(0 0 30px rgba(99, 102, 241, 0.6)) drop-shadow(0 0 60px rgba(124, 58, 237, 0.4))' }}>
+                {/* Main logo */}
                 <Image 
-                  src="/logo_transparent_v2.svg" 
+                  src="/Lock-in.svg" 
                   alt="Lock-in Logo" 
                   fill
-                  className="object-contain p-4 animate-pulse-slow"
+                  className="object-contain relative z-10"
                 />
               </div>
+              
+              {/* Floating elements around logo */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-br from-indigo-400/30 to-purple-500/30 rounded-full blur-sm animate-pulse"></div>
+              <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-br from-purple-400/20 to-indigo-500/20 rounded-full blur-md animate-pulse" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute top-1/2 -right-8 w-6 h-6 bg-gradient-to-br from-indigo-300/40 to-purple-400/40 rounded-full blur-sm animate-pulse" style={{ animationDelay: '2s' }}></div>
             </div>
 
             {/* macOS AI focus assistant badge - enhanced */}
@@ -394,7 +487,6 @@ export default function Page() {
 
             <p className="text-lg md:text-xl text-purple-100/80 max-w-[50ch] mx-auto mb-10 fade-in delay-2 relative">
               Lock-in helps you achieve deep focus with AI-powered coaching that adapts to your work patterns and gently guides you back when your mind wanders.
-              <span className="absolute left-1/2 -bottom-2 w-40 h-1 bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-300 rounded-full transform -translate-x-1/2"></span>
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-20 fade-in delay-3">
@@ -525,8 +617,26 @@ export default function Page() {
         </section>
 
         {/* Demo Video Section */}
-        <section id="demo" className="py-20 relative overflow-hidden">
-          <div className="tech-grid absolute inset-0 opacity-20"></div>
+        <section id="demo" className="py-20 relative overflow-hidden bg-[#0F0C1F]">
+          <div className="tech-grid absolute inset-0"></div>
+          {/* Floating particles */}
+          <div className="absolute inset-0 overflow-hidden">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div 
+                key={i}
+                className="absolute rounded-full particle"
+                style={{
+                  width: `${Math.random() * 6 + 3}px`,
+                  height: `${Math.random() * 6 + 3}px`,
+                  background: `rgba(${Math.random() * 100 + 100}, ${Math.random() * 50 + 50}, ${Math.random() * 200 + 55}, ${Math.random() * 0.4 + 0.1})`,
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animation: `float ${Math.random() * 12 + 18}s linear infinite`,
+                  animationDelay: `${Math.random() * 5}s`,
+                }}
+              />
+            ))}
+          </div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-text-gradient bg-gradient-to-r from-indigo-200 via-purple-300 to-indigo-100 bg-clip-text text-transparent">
@@ -563,8 +673,26 @@ export default function Page() {
         </section>
 
         {/* Features Section */}
-        <section id="features" className="py-20 relative overflow-hidden">
-          <div className="tech-grid absolute inset-0 opacity-20"></div>
+        <section id="features" className="py-20 relative overflow-hidden bg-[#0F0C1F]">
+          <div className="tech-grid absolute inset-0"></div>
+          {/* Floating particles */}
+          <div className="absolute inset-0 overflow-hidden">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div 
+                key={i}
+                className="absolute rounded-full particle"
+                style={{
+                  width: `${Math.random() * 7 + 4}px`,
+                  height: `${Math.random() * 7 + 4}px`,
+                  background: `rgba(${Math.random() * 100 + 100}, ${Math.random() * 50 + 50}, ${Math.random() * 200 + 55}, ${Math.random() * 0.4 + 0.1})`,
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animation: `float ${Math.random() * 10 + 15}s linear infinite`,
+                  animationDelay: `${Math.random() * 5}s`,
+                }}
+              />
+            ))}
+          </div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-text-gradient bg-gradient-to-r from-indigo-200 via-purple-300 to-indigo-100 bg-clip-text text-transparent">
@@ -594,8 +722,26 @@ export default function Page() {
         </section>
 
         {/* Pricing Section */}
-        <section id="pricing" className="py-20 relative overflow-hidden">
-          <div className="tech-grid absolute inset-0 opacity-20"></div>
+        <section id="pricing" className="py-20 relative overflow-hidden bg-[#0F0C1F]">
+          <div className="tech-grid absolute inset-0"></div>
+          {/* Floating particles */}
+          <div className="absolute inset-0 overflow-hidden">
+            {Array.from({ length: 12 }).map((_, i) => (
+              <div 
+                key={i}
+                className="absolute rounded-full particle"
+                style={{
+                  width: `${Math.random() * 8 + 4}px`,
+                  height: `${Math.random() * 8 + 4}px`,
+                  background: `rgba(${Math.random() * 100 + 100}, ${Math.random() * 50 + 50}, ${Math.random() * 200 + 55}, ${Math.random() * 0.5 + 0.2})`,
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animation: `float ${Math.random() * 10 + 15}s linear infinite`,
+                  animationDelay: `${Math.random() * 5}s`,
+                }}
+              />
+            ))}
+          </div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-text-gradient bg-gradient-to-r from-indigo-200 via-purple-300 to-indigo-100 bg-clip-text text-transparent">
@@ -750,8 +896,26 @@ export default function Page() {
         </section>
 
         {/* Waitlist Section */}
-        <section id="waitlist" className="py-20 relative overflow-hidden">
-          <div className="tech-grid absolute inset-0 opacity-20"></div>
+        <section id="waitlist" className="py-20 relative overflow-hidden bg-[#0F0C1F]">
+          <div className="tech-grid absolute inset-0"></div>
+          {/* Floating particles */}
+          <div className="absolute inset-0 overflow-hidden">
+            {Array.from({ length: 9 }).map((_, i) => (
+              <div 
+                key={i}
+                className="absolute rounded-full particle"
+                style={{
+                  width: `${Math.random() * 6 + 3}px`,
+                  height: `${Math.random() * 6 + 3}px`,
+                  background: `rgba(${Math.random() * 100 + 100}, ${Math.random() * 50 + 50}, ${Math.random() * 200 + 55}, ${Math.random() * 0.4 + 0.1})`,
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animation: `float ${Math.random() * 12 + 18}s linear infinite`,
+                  animationDelay: `${Math.random() * 5}s`,
+                }}
+              />
+            ))}
+          </div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-text-gradient bg-gradient-to-r from-indigo-200 via-purple-300 to-indigo-100 bg-clip-text text-transparent">
@@ -803,16 +967,18 @@ export default function Page() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <Link href="/" className="flex items-center gap-2">
-                <div className="relative w-8 h-8">
+              <Link href="/" className="flex items-center gap-3 group">
+                <div className="logo-container relative w-10 h-10 rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <Image 
-                    src="/logo_transparent_v2.svg"
+                    src="/Lock-in.svg"
                     alt="Lock-in"
                     fill
-                    className="object-contain rounded-lg"
+                    className="object-contain p-1.5 relative z-10 rounded-xl"
                   />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <span className="text-xl font-bold text-white">Lock-in</span>
+                <span className="text-xl font-bold text-white group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-indigo-300 group-hover:via-purple-300 group-hover:to-indigo-200 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Lock-in</span>
               </Link>
               <p className="text-indigo-200/60 mt-2 text-sm max-w-xs">
                 Focus like a pro, coached by AI not timers.
