@@ -1,7 +1,7 @@
 {
-  "name": "vibedev.ai",
-  "short_name": "vibedev",
-  "description": "Experience the new way of coding with vibedev.ai. Transform your development workflow and vibe with your code like never before.",
+  "name": "Lock-in",
+  "short_name": "Lock-in",
+  "description": "Lock-in helps you stay focused and productive. Transform your workflow with smart focus tools and personalized productivity insights.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
