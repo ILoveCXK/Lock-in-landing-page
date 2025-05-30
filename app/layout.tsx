@@ -20,28 +20,28 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/images/idevibelogo.svg",
+        url: "/logo_transparent_v2.svg",
         type: "image/svg+xml",
         sizes: "32x32"
       },
       {
-        url: "/images/idevibelogo.svg",
+        url: "/logo_transparent_v2.svg",
         type: "image/svg+xml",
         sizes: "16x16"
       }
     ],
     apple: [
       {
-        url: "/images/idevibelogo.svg",
+        url: "/logo_transparent_v2.svg",
         type: "image/svg+xml",
         sizes: "180x180"
       }
     ],
-    shortcut: [{ url: "/images/idevibelogo.svg" }],
+    shortcut: [{ url: "/logo_transparent_v2.svg" }],
     other: [
       {
         rel: "icon",
-        url: "/images/idevibelogo.svg",
+        url: "/logo_transparent_v2.svg",
       },
     ],
   },
@@ -61,9 +61,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="icon" type="image/svg+xml" sizes="32x32" href="/images/idevibelogo.svg" />
-        <link rel="icon" type="image/svg+xml" sizes="16x16" href="/images/idevibelogo.svg" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/idevibelogo.svg" />
+        <link rel="icon" type="image/svg+xml" sizes="32x32" href="/logo_transparent_v2.svg" />
+        <link rel="icon" type="image/svg+xml" sizes="16x16" href="/logo_transparent_v2.svg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo_transparent_v2.svg" />
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={`${inter.className} bg-black`}>{children}</body>

@@ -24,13 +24,12 @@ const inter = Inter({
 const features = [
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2v8"></path>
-        <path d="m4.93 10.93 1.41 1.41"></path>
-        <path d="M2 18h2"></path>
-        <path d="M20 18h2"></path>
-        <path d="m19.07 10.93-1.41 1.41"></path>
-        <path d="M16 16a4 4 0 0 0-8 0"></path>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M9 12l2 2 4-4"/>
+        <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+        <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+        <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3"/>
+        <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3"/>
       </svg>
     ),
     title: "Smart Nudges",
@@ -38,12 +37,8 @@ const features = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"></path>
-        <path d="M15 3v6h6"></path>
-        <path d="M12 18v-6"></path>
-        <path d="M8 18v-1"></path>
-        <path d="M16 18v-3"></path>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
       </svg>
     ),
     title: "Adaptive Break Coaching",
@@ -51,9 +46,11 @@ const features = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"></path>
-        <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M3 3v5h5"/>
+        <path d="M3 8a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 4"/>
+        <path d="M21 21v-5h-5"/>
+        <path d="M21 16a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 20"/>
       </svg>
     ),
     title: "Session Insights",
@@ -299,7 +296,7 @@ export default function Page() {
                 src="/logo_transparent_v2.svg"
                 alt="Lock-in"
                 fill
-                className="object-contain"
+                className="object-contain rounded-lg"
               />
             </div>
             <span className="text-xl font-bold text-white">Lock-in</span>
@@ -363,13 +360,14 @@ export default function Page() {
             {/* Logo with enhanced styling */}
             <div className="mb-6 relative">
               <div className="absolute -inset-6 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 blur-md rounded-full opacity-75"></div>
-              <Image 
-                src="/logo_transparent_v2.svg" 
-                alt="Lock-in Logo" 
-                width={160}
-                height={160}
-                className="w-32 h-32 md:w-40 md:h-40 mx-auto object-contain relative z-10 animate-pulse-slow"
-              />
+              <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-500/10 to-purple-500/10 backdrop-blur-sm border border-indigo-400/20 shadow-xl shadow-purple-500/20">
+                <Image 
+                  src="/logo_transparent_v2.svg" 
+                  alt="Lock-in Logo" 
+                  fill
+                  className="object-contain p-4 animate-pulse-slow"
+                />
+              </div>
             </div>
 
             {/* macOS AI focus assistant badge - enhanced */}
@@ -580,16 +578,16 @@ export default function Page() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {features.map((feature, index) => (
                 <div key={index} className="bg-gradient-to-br from-[#1E1940]/80 to-[#28204F]/80 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-6 shadow-[0_8px_30px_rgba(92,71,255,0.15)] group hover:shadow-[0_8px_30px_rgba(92,71,255,0.25)] transition-all duration-500 scroll-animation">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-6 shadow-lg shadow-purple-600/20 group-hover:shadow-purple-600/30 group-hover:scale-110 transition-all duration-500">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-6 shadow-lg shadow-purple-600/20 group-hover:shadow-purple-600/30 group-hover:scale-110 transition-all duration-500">
                     {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-white group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-indigo-300 group-hover:via-purple-300 group-hover:to-indigo-200 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                    {feature.title}
-                  </h3>
-                  <p className="text-indigo-200/80 leading-relaxed">
-                    {feature.description}
-                  </p>
                 </div>
+                <h3 className="text-xl font-bold mb-3 text-white group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-indigo-300 group-hover:via-purple-300 group-hover:to-indigo-200 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                    {feature.title}
+                </h3>
+                <p className="text-indigo-200/80 leading-relaxed">
+                    {feature.description}
+                </p>
+              </div>
               ))}
             </div>
           </div>
@@ -811,7 +809,7 @@ export default function Page() {
                     src="/logo_transparent_v2.svg"
                     alt="Lock-in"
                     fill
-                    className="object-contain"
+                    className="object-contain rounded-lg"
                   />
                 </div>
                 <span className="text-xl font-bold text-white">Lock-in</span>
