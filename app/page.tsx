@@ -730,7 +730,7 @@ export default function Page() {
                   
                   <div className="flex flex-col gap-3">
                     <a 
-                      href="https://s3.us-east-005.backblazeb2.com/releases/Lock-in-1.1.0.dmg"
+                      href="https://f005.backblazeb2.com/file/lock-in-download/releases/LockIn-1.1.0.dmg"
                       className="group relative overflow-hidden bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl shadow-purple-600/20 flex items-center gap-3"
                     >
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -770,7 +770,7 @@ export default function Page() {
                       <p className="text-indigo-200/60 text-sm">Released December 1, 2024 • Initial release</p>
                     </div>
                     <a 
-                      href="https://s3.us-east-005.backblazeb2.com/releases/Lock-in-1.0.0.dmg"
+                      href="https://f005.backblazeb2.com/file/lock-in-download/releases/LockIn-1.0.0.dmg"
                       className="mt-3 md:mt-0 bg-indigo-900/50 hover:bg-indigo-800/70 text-indigo-200 hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2"
                     >
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
