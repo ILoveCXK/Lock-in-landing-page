@@ -393,6 +393,7 @@ export default function Page() {
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#features" className="text-indigo-200/80 hover:text-white transition-colors">Features</a>
             <a href="#demo" className="text-indigo-200/80 hover:text-white transition-colors">Demo</a>
+            <a href="#download" className="text-indigo-200/80 hover:text-white transition-colors">Download</a>
             <a href="#pricing" className="text-indigo-200/80 hover:text-white transition-colors">Pricing</a>
             <Link href="#waitlist">
               <Button variant="lockin" size="sm">
@@ -481,7 +482,7 @@ export default function Page() {
             {/* Tagline - revised for two lines instead of three */}
             <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-6 max-w-4xl mx-auto fade-in delay-1 leading-tight ${playfair.className}`}>
               <span className="animate-text-gradient bg-gradient-to-r from-white via-purple-200 to-indigo-200 bg-clip-text text-transparent">
-                Focus like a pro,<br />coached by AI not timers.
+                Your personal focus assistant.
               </span>
             </h1>
 
@@ -668,6 +669,131 @@ export default function Page() {
               <p className="text-indigo-200/60 text-sm max-w-xl mx-auto">
                 The demo video will be available with our beta release. Join the waitlist to be notified!
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Download Section */}
+        <section id="download" className="py-20 relative overflow-hidden bg-[#0F0C1F]">
+          <div className="tech-grid absolute inset-0"></div>
+          {/* Floating particles */}
+          <div className="absolute inset-0 overflow-hidden">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div 
+                key={i}
+                className="absolute rounded-full particle"
+                style={{
+                  width: `${Math.random() * 7 + 4}px`,
+                  height: `${Math.random() * 7 + 4}px`,
+                  background: `rgba(${Math.random() * 100 + 100}, ${Math.random() * 50 + 50}, ${Math.random() * 200 + 55}, ${Math.random() * 0.4 + 0.1})`,
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animation: `float ${Math.random() * 10 + 15}s linear infinite`,
+                  animationDelay: `${Math.random() * 5}s`,
+                }}
+              />
+            ))}
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-text-gradient bg-gradient-to-r from-indigo-200 via-purple-300 to-indigo-100 bg-clip-text text-transparent">
+                Download Lock-in
+              </h2>
+              <p className="text-indigo-200/80 max-w-2xl mx-auto text-lg">
+                Get the latest version of Lock-in for macOS and start your journey to better focus.
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              {/* Current Version - Featured */}
+              <div className="bg-gradient-to-br from-[#1E1940]/80 to-[#28204F]/80 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-8 shadow-[0_8px_30px_rgba(92,71,255,0.15)] mb-8 scroll-animation relative overflow-hidden">
+                <div className="absolute -right-24 -top-24 w-48 h-48 bg-gradient-to-br from-indigo-600/5 to-purple-600/5 rounded-full blur-3xl"></div>
+                
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                  <div className="text-center md:text-left">
+                    <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-600/20">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M21 15V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <polyline points="7,10 12,15 17,10" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <line x1="12" y1="15" x2="12" y2="3" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                        </svg>
+                      </div>
+                      <span className="inline-block px-3 py-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-sm font-medium rounded-full">
+                        Latest Release
+                      </span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">Lock-in v1.1.0</h3>
+                    <p className="text-indigo-200/80 mb-2">Released January 1, 2025</p>
+                    <p className="text-indigo-200/60 text-sm">Enhanced AI coaching • Better performance • Bug fixes</p>
+                  </div>
+                  
+                  <div className="flex flex-col gap-3">
+                    <a 
+                      href="https://s3.us-east-005.backblazeb2.com/releases/Lock-in-1.1.0.dmg"
+                      className="group relative overflow-hidden bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl shadow-purple-600/20 flex items-center gap-3"
+                    >
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 15V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <polyline points="7,10 12,15 17,10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      </svg>
+                      <span>Download for macOS</span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </a>
+                    <p className="text-indigo-200/60 text-xs text-center">macOS 12.0+ • Apple Silicon & Intel</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Previous Versions */}
+              <div className="bg-gradient-to-br from-[#1E1940]/60 to-[#28204F]/60 backdrop-blur-sm border border-indigo-500/10 rounded-xl p-6 scroll-animation">
+                <h4 className="text-lg font-semibold text-indigo-200 mb-4 flex items-center gap-2">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
+                    <path d="M12 1V3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M12 21V23" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M4.22 4.22L5.64 5.64" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M18.36 18.36L19.78 19.78" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M1 12H3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M21 12H23" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M4.22 19.78L5.64 18.36" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M18.36 5.64L19.78 4.22" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                  Previous Versions
+                </h4>
+                
+                <div className="space-y-3">
+                  <div className="flex flex-col md:flex-row items-start md:items-center justify-between p-4 bg-[#1A1730]/50 rounded-lg border border-indigo-500/10 hover:border-indigo-500/20 transition-colors group">
+                    <div>
+                      <h5 className="font-medium text-indigo-200 group-hover:text-white transition-colors">Lock-in v1.0.0</h5>
+                      <p className="text-indigo-200/60 text-sm">Released December 1, 2024 • Initial release</p>
+                    </div>
+                    <a 
+                      href="https://s3.us-east-005.backblazeb2.com/releases/Lock-in-1.0.0.dmg"
+                      className="mt-3 md:mt-0 bg-indigo-900/50 hover:bg-indigo-800/70 text-indigo-200 hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 15V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <polyline points="7,10 12,15 17,10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      </svg>
+                      Download
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* System Requirements */}
+              <div className="mt-8 text-center">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#1E1940]/50 border border-indigo-500/20 rounded-full text-indigo-200/80 text-sm">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                    <path d="M12 6V12L16 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  System Requirements: macOS 12.0 or later • 100MB free space
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -991,6 +1117,7 @@ export default function Page() {
                 <ul className="space-y-2">
                   <li><a href="#features" className="text-indigo-200/80 hover:text-white transition-colors">Features</a></li>
                   <li><a href="#demo" className="text-indigo-200/80 hover:text-white transition-colors">Demo</a></li>
+                  <li><a href="#download" className="text-indigo-200/80 hover:text-white transition-colors">Download</a></li>
                   <li><a href="#pricing" className="text-indigo-200/80 hover:text-white transition-colors">Pricing</a></li>
                 </ul>
               </div>
