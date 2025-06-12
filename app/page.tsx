@@ -490,9 +490,9 @@ export default function Page() {
 
           <div className="max-w-[1200px] mx-auto text-center relative z-10">
             {/* AI-Powered badge */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-300/20 to-violet-400/20 border border-slate-400/30 rounded-full px-4 py-2 mb-6 fade-in">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100/30 to-[#f6f5fa]/50 border border-purple-300/40 rounded-full px-4 py-2 mb-6 fade-in backdrop-blur-sm">
               <div className="w-2 h-2 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full animate-pulse"></div>
-              <span className={`text-sm text-muted-foreground font-medium ${workSans.className}`}>AI-Powered Focus Coaching</span>
+              <span className={`text-sm text-foreground/80 font-medium ${workSans.className}`}>AI-Powered Focus Coaching</span>
             </div>
             
             {/* Tagline - one liner */}
