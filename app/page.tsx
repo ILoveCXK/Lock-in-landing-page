@@ -478,7 +478,7 @@ export default function Page() {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
           {/* Background Elements */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-dotted-grid dark:bg-dotted-grid opacity-40"></div>
@@ -488,11 +488,11 @@ export default function Page() {
             <div className="absolute inset-0 bg-gradient-to-br from-[#f6f5fa]/50 via-transparent to-purple-100/50 dark:from-purple-900/10 dark:via-transparent dark:to-slate-900/10 pointer-events-none"></div>
           </div>
 
-          <div className="max-w-[1200px] mx-auto text-center relative z-10">
+          <div className="max-w-[1200px] mx-auto text-center relative z-10 px-4">
             {/* AI-Powered badge */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100/30 to-[#f6f5fa]/50 border border-purple-300/40 rounded-full px-4 py-2 mb-6 fade-in backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-card/80 border border-border/50 rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
               <div className="w-2 h-2 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full animate-pulse"></div>
-              <span className={`text-sm text-foreground/80 font-medium ${workSans.className}`}>AI-Powered Focus Coaching</span>
+              <span className={`text-sm text-muted-foreground font-medium ${workSans.className}`}>AI-Powered Focus Coaching</span>
             </div>
             
             {/* Tagline - one liner */}
