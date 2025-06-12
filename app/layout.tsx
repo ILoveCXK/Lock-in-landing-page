@@ -92,14 +92,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <link rel="icon" type="image/svg+xml" sizes="32x32" href="/Lock-in.svg" />
         <link rel="icon" type="image/svg+xml" sizes="16x16" href="/Lock-in.svg" />
         <link rel="apple-touch-icon" sizes="180x180" href="/Lock-in.svg" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className={`${inter.className} bg-black`}>{children}</body>
+      <body className={`${inter.className}`}>{children}</body>
     </html>
   );
 }

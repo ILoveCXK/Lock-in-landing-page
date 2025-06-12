@@ -11,34 +11,40 @@
     background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
     background-size: 24px 24px;
   }
+  
+  .bg-dotted-grid-light {
+    background-image: radial-gradient(rgba(74, 68, 123, 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
 }
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    /* Enhanced light mode colors - Custom purple theme with less pink */
+    --background: 0 0% 98%;
+    --foreground: 245 25% 35%; /* Using #4a447b equivalent */
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 245 25% 35%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 259 68% 61%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 264 44% 89%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --popover-foreground: 245 25% 35%;
+    --primary: 245 25% 35%; /* #4a447b */
+    --primary-foreground: 245 20% 97%; /* #f6f5fa equivalent */
+    --secondary: 245 20% 97%;
+    --secondary-foreground: 245 25% 35%;
+    --muted: 245 20% 96%;
+    --muted-foreground: 245 15% 55%;
+    --accent: 245 20% 96%;
+    --accent-foreground: 245 25% 35%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 264 44% 89%;
-    --input: 240 5.9% 90%;
-    --ring: 259 68% 61%;
-    --chart-1: 259 68% 61%;
-    --chart-2: 264 44% 89%;
-    --chart-3: 275 36% 50%;
-    --chart-4: 299 49% 71%;
-    --chart-5: 320 72% 84%;
+    --border: 245 15% 88%;
+    --input: 245 15% 90%;
+    --ring: 245 25% 35%;
+    --chart-1: 245 25% 35%;
+    --chart-2: 245 20% 80%;
+    --chart-3: 250 30% 45%;
+    --chart-4: 255 35% 60%;
+    --chart-5: 260 40% 75%;
     --radius: 0.75rem;
   }
   .dark {
