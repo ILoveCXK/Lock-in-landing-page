@@ -517,7 +517,7 @@ export default function Page() {
               <Button 
                 variant="lockin" 
                 size="lg" 
-                  className="relative overflow-hidden bg-gradient-to-r from-purple-500 via-[#4a447b] to-purple-500 hover:from-purple-600 hover:via-purple-500 hover:to-purple-700 hover:shadow-[0_0_32px_8px_rgba(124,58,237,0.45)] hover:text-white transition-all duration-500 transform hover:scale-105 shadow-2xl shadow-purple-500/30 border border-purple-400/20 py-5 px-8"
+                className="relative overflow-hidden bg-gradient-to-r from-purple-500 via-[#4a447b] to-purple-500 hover:from-purple-600 hover:via-purple-500 hover:to-purple-700 hover:shadow-[0_0_32px_8px_rgba(124,58,237,0.45)] hover:text-purple-200 transition-all duration-500 transform hover:scale-105 shadow-2xl shadow-purple-500/30 border border-purple-400/20 py-5 px-8"
               >
                   <span className="relative z-10 text-white flex items-center gap-3 px-2">
                     <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
