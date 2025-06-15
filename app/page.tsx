@@ -462,7 +462,7 @@ export default function Page() {
                   Contact
                 </a>
                 <a 
-                  href="https://f005.backblazeb2.com/file/lock-in-download/releases/LockIn-1.1.0.dmg"
+                  href="https://f005.backblazeb2.com/file/lock-in-download/releases/lock-in.dmg"
                   className="inline-block mt-4"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -498,8 +498,8 @@ export default function Page() {
             {/* Tagline - one liner */}
             <h1 className={`text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 mx-auto fade-in delay-1 leading-tight whitespace-nowrap ${alexandria.className}`}>
               <span className="animate-text-gradient bg-gradient-to-r from-foreground via-purple-400 to-[#4a447b] bg-clip-text text-transparent">
-                Your personal focus assistant.
-                      </span>
+                Your personal focus coach.
+              </span>
             </h1>
 
             {/* Enhanced caption */}
@@ -511,7 +511,7 @@ export default function Page() {
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8 fade-in delay-3">
                     <a 
-                      href="https://f005.backblazeb2.com/file/lock-in-download/releases/LockIn-1.1.0.dmg"
+                      href="https://f005.backblazeb2.com/file/lock-in-download/releases/lock-in.dmg"
                 className="inline-block group"
               >
               <Button 
