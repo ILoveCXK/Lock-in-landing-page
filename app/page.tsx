@@ -493,13 +493,13 @@ export default function Page() {
             <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-card/80 border border-border/50 rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
               <div className="w-2 h-2 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full animate-pulse"></div>
               <span className={`text-sm text-muted-foreground font-medium ${workSans.className}`}>AI-Powered Focus Coaching</span>
-                        </div>
+            </div>
             
             {/* Tagline - one liner */}
             <h1 className={`text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 mx-auto fade-in delay-1 leading-tight whitespace-nowrap ${alexandria.className}`}>
               <span className="animate-text-gradient bg-gradient-to-r from-foreground via-purple-400 to-[#4a447b] bg-clip-text text-transparent">
                 Your personal focus coach.
-                      </span>
+              </span>
             </h1>
 
             {/* Enhanced caption */}
@@ -510,16 +510,16 @@ export default function Page() {
             </div>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8 fade-in delay-3">
-                    <a 
-                      href="https://f005.backblazeb2.com/file/lock-in-download/releases/lock-in.dmg"
+              <a 
+                href="https://f005.backblazeb2.com/file/lock-in-download/releases/lock-in.dmg"
                 className="inline-block group"
               >
-              <Button 
-                variant="lockin" 
-                size="lg" 
-                className="relative overflow-hidden bg-gradient-to-r from-purple-500 via-[#4a447b] to-purple-500 hover:from-purple-600 hover:via-purple-500 hover:to-purple-700 hover:shadow-[0_0_32px_8px_rgba(124,58,237,0.45)] hover:text-purple-200 transition-all duration-500 transform hover:scale-105 shadow-2xl shadow-purple-500/30 border border-purple-400/20 py-5 px-8"
-              >
-                  <span className="relative z-10 text-white flex items-center gap-3 px-2">
+                <Button 
+                  variant="lockin" 
+                  size="lg" 
+                  className="group relative overflow-hidden bg-gradient-to-r from-purple-500 via-[#4a447b] to-purple-500 hover:from-purple-600 hover:via-purple-500 hover:to-purple-700 hover:shadow-[0_0_32px_8px_rgba(124,58,237,0.45)] hover:text-purple-200 active:text-purple-200 focus:text-purple-200 transition-all duration-500 transform hover:scale-105 shadow-2xl shadow-purple-500/30 border border-purple-400/20 py-5 px-8"
+                >
+                  <span className="relative z-10 flex items-center gap-3 px-2 group-hover:text-purple-200 group-active:text-purple-200 group-focus:text-purple-200">
                     <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M21 15V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -529,56 +529,24 @@ export default function Page() {
                     </div>
                     <span className="font-semibold">Download for macOS</span>
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-100 via-[#f6f5fa] to-purple-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </Button>
-                    </a>
-              </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-purple-400 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-purple-700/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Button>
+              </a>
+            </div>
 
             {/* Enhanced Demo Video */}
             <div id="hero-demo" className="relative w-full max-w-[1000px] mx-auto scroll-animation transform hover:scale-[1.02] transition-all duration-700 group">
-              <div className="relative">
-                {/* Glow effect behind the demo */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-purple-200/20 via-[#4a447b]/30 to-purple-200/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                <div className="relative aspect-video bg-card/90 backdrop-blur-sm border border-border rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(74,68,123,0.35)]">
-                  {/* Top bar with dots */}
-                  <div className="flex items-center gap-2 px-6 py-4 border-b border-border bg-muted/50">
-                    <div className="flex gap-2">
-                      <div className="w-3 h-3 rounded-full bg-red-400/80"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-400/80"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-400/80"></div>
-                    </div>
-                    <div className="flex-1 text-center">
-                      {/* Removed the Lock-in Demo title */}
-                    </div>
-                  </div>
-                  
-                  {/* Main content area */}
-                  <div className="relative h-full flex items-center justify-center p-8">
-                    <div className="text-center">
-                      <div className="w-24 h-24 rounded-full bg-gradient-to-br from-purple-400 to-[#4a447b] flex items-center justify-center shadow-2xl shadow-purple-500/50 animate-pulse-slow mb-6 mx-auto border border-purple-400/30">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5 3L19 12L5 21V3Z" fill="white" />
+              <div className="relative aspect-video bg-neutral-900 border border-border rounded-2xl overflow-hidden flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center w-full h-full">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" stroke="#fff" strokeWidth="2" fill="none" />
+                    <polygon points="10,8 16,12 10,16" fill="#fff" />
                   </svg>
-                    </div>
-                      <h3 className={`text-2xl font-bold text-foreground mb-2 ${alexandria.className}`}>Interactive Demo</h3>
-                      <p className={`text-muted-foreground ${lato.className}`}>Experience the future of productivity</p>
-                  </div>
-                    
-                    {/* Decorative elements */}
-                    <div className="absolute top-6 right-6 w-20 h-20 border border-border rounded-full opacity-30"></div>
-                    <div className="absolute bottom-6 left-6 w-16 h-16 border border-border rounded-lg opacity-20"></div>
-                </div>
-                  
-                  {/* Bottom gradient overlay */}
-                  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-muted/60 to-transparent"></div>
-              </div>
                 </div>
               </div>
             </div>
-          
-          {/* Add tech elements around the mockup */}
+          </div>
         </section>
 
         {/* Features Section */}
@@ -602,8 +570,8 @@ export default function Page() {
                       <div className="w-full h-full flex items-center justify-center">
                         <div className="text-center">
                           <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-[#4a447b] flex items-center justify-center mb-4 mx-auto shadow-lg shadow-purple-500/20">
-                    {feature.icon}
-                </div>
+                            {feature.icon}
+                          </div>
                           <p className={`text-muted-foreground text-sm ${workSans.className}`}>Feature Preview</p>
                         </div>
                       </div>
@@ -613,13 +581,13 @@ export default function Page() {
                   {/* Content */}
                   <div className="w-full md:w-1/2 text-center md:text-left">
                     <h3 className={`text-2xl md:text-3xl font-bold mb-4 text-foreground ${alexandria.className}`}>
-                    {feature.title}
-                </h3>
+                      {feature.title}
+                    </h3>
                     <p className={`text-muted-foreground text-lg leading-relaxed ${lato.className}`}>
-                    {feature.description}
-                </p>
+                      {feature.description}
+                    </p>
                   </div>
-              </div>
+                </div>
               ))}
             </div>
           </div>
@@ -645,25 +613,25 @@ export default function Page() {
                   <div className="flex items-baseline justify-center mb-4">
                     <span className={`text-4xl font-bold text-foreground ${alexandria.className}`}>$8.99</span>
                     <span className={`text-muted-foreground ml-2 ${workSans.className}`}>/month</span>
-                </div>
+                  </div>
                 </div>
                 <ul className="space-y-3 mb-8 flex-grow">
                   <li className={`flex items-center text-muted-foreground ${lato.className}`}>
                     <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                    </svg>
                     Advanced AI coaching
                   </li>
                   <li className={`flex items-center text-muted-foreground ${lato.className}`}>
                     <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                    </svg>
                     Adaptive break coaching
                   </li>
                   <li className={`flex items-center text-muted-foreground ${lato.className}`}>
                     <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                    </svg>
                     Detailed session insights
                   </li>
                   <li className={`flex items-center text-muted-foreground ${lato.className}`}>
@@ -675,7 +643,7 @@ export default function Page() {
                 </ul>
                 <Button variant="lockinOutline" className="w-full mt-auto">
                   Start 24h Free Trial
-                  </Button>
+                </Button>
               </div>
               
               {/* Yearly Plan */}
@@ -690,40 +658,40 @@ export default function Page() {
                   <div className="flex items-baseline justify-center mb-2">
                     <span className={`text-4xl font-bold text-foreground ${alexandria.className}`}>$59.88</span>
                     <span className={`text-muted-foreground ml-2 ${workSans.className}`}>/year</span>
-                </div>
+                  </div>
                   <div className={`text-sm text-green-400 mb-2 ${workSans.className}`}>
                     Save 44% vs monthly
-                </div>
+                  </div>
                 </div>
                 <ul className="space-y-3 mb-8 flex-grow">
                   <li className={`flex items-center text-muted-foreground ${lato.className}`}>
                     <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                    </svg>
                     Advanced AI coaching
                   </li>
                   <li className={`flex items-center text-muted-foreground ${lato.className}`}>
                     <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                    </svg>
                     Adaptive break coaching
                   </li>
                   <li className={`flex items-center text-muted-foreground ${lato.className}`}>
                     <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                    </svg>
                     Detailed session insights
                   </li>
                   <li className={`flex items-center text-muted-foreground ${lato.className}`}>
                     <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                    </svg>
                     Priority support
                   </li>
                 </ul>
                 <Button variant="lockin" className="w-full mt-auto">
                   Start 24h Free Trial
-                  </Button>
+                </Button>
               </div>
             </div>
           </div>
@@ -785,8 +753,8 @@ export default function Page() {
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-              </svg>
-            </a>
+                </svg>
+              </a>
               
               <a 
                 href="#" 
@@ -795,8 +763,8 @@ export default function Page() {
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-            </a>
+                </svg>
+              </a>
               
               <a 
                 href="#" 
@@ -807,8 +775,8 @@ export default function Page() {
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                   <rect x="2" y="9" width="4" height="12"></rect>
                   <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
