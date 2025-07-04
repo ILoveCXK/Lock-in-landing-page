@@ -33,11 +33,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lock-in | AI focus assistant",
     description: "Transform your productivity with Lock-in, the AI-powered focus assistant that coaches you to peak performance.",
-    url: "/Lock-in.svg",
+    url: "/Lock-in (5).png",
     siteName: "Lock-in",
     images: [
       {
-        url: "/Lock-in.svg",
+        url: "/Lock-in (5).png",
         width: 1200,
         height: 630,
         alt: "Lock-in - AI-Powered Focus Assistant",
@@ -50,18 +50,18 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lock-in | AI focus assistant",
     description: "Transform your productivity with Lock-in, the AI-powered focus assistant that coaches you to peak performance.",
-    images: ["/Lock-in.svg"],
+    images: ["/Lock-in (5).png"],
   },
   icons: {
     icon: [
-      { url: "/Lock-in.svg" },
-      { url: "/Lock-in.svg", sizes: "16x16", type: "image/svg+xml" },
-      { url: "/Lock-in.svg", sizes: "32x32", type: "image/svg+xml" },
+      { url: "/Lock-in (5).png" },
+      { url: "/Lock-in (5).png", sizes: "16x16", type: "image/png" },
+      { url: "/Lock-in (5).png", sizes: "32x32", type: "image/png" },
     ],
-    shortcut: [{ url: "/Lock-in.svg" }],
+    shortcut: [{ url: "/Lock-in (5).png" }],
     apple: [
-      { url: "/Lock-in.svg" },
-      { url: "/Lock-in.svg", sizes: "180x180", type: "image/svg+xml" },
+      { url: "/Lock-in (5).png" },
+      { url: "/Lock-in (5).png", sizes: "180x180", type: "image/png" },
     ],
   },
   manifest: "/manifest.json",
@@ -94,9 +94,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" type="image/svg+xml" sizes="32x32" href="/Lock-in.svg" />
-        <link rel="icon" type="image/svg+xml" sizes="16x16" href="/Lock-in.svg" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/Lock-in.svg" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/Lock-in (5).png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/Lock-in (5).png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/Lock-in (5).png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={`${inter.className}`}>{children}</body>
