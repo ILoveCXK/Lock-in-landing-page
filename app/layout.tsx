@@ -15,7 +15,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Lock-in - AI-Powered Focus Assistant for macOS",
+  title: "Lock-in | AI focus assistant",
   description: "Transform your productivity with Lock-in, the AI-powered focus assistant that coaches you to peak performance. Smart insights, personalized guidance, and distraction-free focus sessions.",
   keywords: ["productivity", "focus", "AI assistant", "macOS", "time management", "distraction blocking"],
   authors: [{ name: "Lock-in Team" }],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: "Lock-in - AI-Powered Focus Assistant for macOS",
+    title: "Lock-in | AI focus assistant",
     description: "Transform your productivity with Lock-in, the AI-powered focus assistant that coaches you to peak performance.",
     url: "/Lock-in.svg",
     siteName: "Lock-in",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lock-in - AI-Powered Focus Assistant for macOS",
+    title: "Lock-in | AI focus assistant",
     description: "Transform your productivity with Lock-in, the AI-powered focus assistant that coaches you to peak performance.",
     images: ["/Lock-in.svg"],
   },

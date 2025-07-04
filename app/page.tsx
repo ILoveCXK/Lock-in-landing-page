@@ -2,10 +2,10 @@
 'use client'
 
 import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
+
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
-import { Alexandria, Lato, Work_Sans, Playfair_Display } from 'next/font/google'
+import { Alexandria, Lato, Work_Sans, Playfair_Display, Inter } from 'next/font/google'
 import Image from "next/image"
 
 const alexandria = Alexandria({ 
@@ -36,41 +36,29 @@ const playfairDisplay = Playfair_Display({
   style: ['normal'],
 })
 
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700'], // Multiple weights for flexibility
+  style: ['normal'],
+})
+
 // Define features array
 const features = [
   {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M9 12l2 2 4-4"/>
-        <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
-        <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
-        <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3"/>
-        <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3"/>
-      </svg>
-    ),
+    image: "/smart-nudge-demo.png",
     title: "Smart Nudges",
-    description: "Detect drift and gently pull users back on task."
+    description: "Lock-in tracks real work, spots tab hops or idle stalls,<br />then nudges you before 3 seconds become 30 minutes."
   },
   {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-      </svg>
-    ),
+    image: "/break-coaching-demo.png",
     title: "Adaptive Break Coaching",
-    description: "Suggests micro‑stretches & breathing when productivity dips."
+    description: "When focus dips, Lock-in suggests quick science-backed resets like<br />water break or sixty-second stretch to revive attention."
   },
   {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M3 3v5h5"/>
-        <path d="M3 8a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 4"/>
-        <path d="M21 21v-5h-5"/>
-        <path d="M21 16a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 20"/>
-      </svg>
-    ),
+    image: "/report-demo.png",
     title: "Session Insights",
-    description: "End‑of‑focus reports + AI recommendations for the next round."
+    description: "End each session with a clear report: focus score, <br />distractions, recovery time, plus simple tips for next round."
   }
 ];
 
@@ -79,22 +67,28 @@ export default function Page() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    observerRef.current = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
+          // Add .animate-in to all children that need it
+          entry.target.querySelectorAll('.feature-title, .feature-description, .slide-in-right, .scroll-animation').forEach(el => {
+            el.classList.add('animate-in');
+          });
+          // Stop observing the parent
+          observer.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.1,
-      rootMargin: '50px'
+      threshold: 0.2, // Trigger when 20% of the element is visible
+      rootMargin: '0px 0px -100px 0px' // Start detecting 100px above the bottom of the viewport
     });
 
-    document.querySelectorAll('.scroll-animation').forEach((element) => {
-      observerRef.current?.observe(element);
+    document.querySelectorAll('.feature-section').forEach(section => {
+      observer.observe(section);
     });
 
-    return () => observerRef.current?.disconnect();
+    // Cleanup
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -256,6 +250,116 @@ export default function Page() {
       .logo-container:hover::before {
         opacity: 1;
       }
+
+              .mock-window {
+          -webkit-mask-image: linear-gradient(to bottom,
+              black 70%, transparent 100%);
+          mask-image: linear-gradient(to bottom,
+              black 70%, transparent 100%);
+        }
+
+        @keyframes cloud-drift-1 {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 0.3;
+          }
+          25% {
+            transform: translate(30px, -20px) scale(1.2);
+            opacity: 0.6;
+          }
+          50% {
+            transform: translate(-20px, 30px) scale(0.8);
+            opacity: 0.4;
+          }
+          75% {
+            transform: translate(40px, 10px) scale(1.1);
+            opacity: 0.5;
+          }
+        }
+
+        @keyframes cloud-drift-2 {
+          0%, 100% {
+            transform: translate(0, 0) scale(0.9);
+            opacity: 0.4;
+          }
+          33% {
+            transform: translate(-40px, 25px) scale(1.3);
+            opacity: 0.7;
+          }
+          66% {
+            transform: translate(20px, -30px) scale(0.7);
+            opacity: 0.3;
+          }
+        }
+
+        @keyframes cloud-drift-3 {
+          0%, 100% {
+            transform: translate(0, 0) scale(1.1);
+            opacity: 0.5;
+          }
+          20% {
+            transform: translate(25px, 40px) scale(0.6);
+            opacity: 0.3;
+          }
+          60% {
+            transform: translate(-30px, -15px) scale(1.4);
+            opacity: 0.8;
+          }
+          80% {
+            transform: translate(10px, 20px) scale(0.9);
+            opacity: 0.4;
+          }
+        }
+
+        @keyframes cloud-drift-4 {
+          0%, 100% {
+            transform: translate(0, 0) scale(0.8);
+            opacity: 0.6;
+          }
+          40% {
+            transform: translate(-25px, -35px) scale(1.2);
+            opacity: 0.4;
+          }
+          80% {
+            transform: translate(35px, 15px) scale(1.0);
+            opacity: 0.7;
+          }
+        }
+
+        @keyframes cloud-drift-5 {
+          0%, 100% {
+            transform: translate(0, 0) scale(1.0);
+            opacity: 0.4;
+          }
+          30% {
+            transform: translate(45px, -25px) scale(0.7);
+            opacity: 0.6;
+          }
+          70% {
+            transform: translate(-15px, 35px) scale(1.3);
+            opacity: 0.3;
+          }
+        }
+
+        .dynamic-cloud-1 {
+          animation: cloud-drift-1 12s ease-in-out infinite;
+        }
+
+        .dynamic-cloud-2 {
+          animation: cloud-drift-2 15s ease-in-out infinite;
+        }
+
+        .dynamic-cloud-3 {
+          animation: cloud-drift-3 18s ease-in-out infinite;
+        }
+
+        .dynamic-cloud-4 {
+          animation: cloud-drift-4 14s ease-in-out infinite;
+        }
+
+        .dynamic-cloud-5 {
+          animation: cloud-drift-5 16s ease-in-out infinite;
+      }
     `;
     document.head.appendChild(styleElement);
     
@@ -391,6 +495,39 @@ export default function Page() {
           transform: translateY(0);
         }
 
+        .feature-title {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .feature-title.animate-in {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .feature-description {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .feature-description.animate-in {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .slide-in-right {
+          opacity: 0;
+          transform: translateX(200px);
+          transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .slide-in-right.animate-in {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
         .scroll-delay-1 { transition-delay: 0.1s; }
         .scroll-delay-2 { transition-delay: 0.2s; }
         .scroll-delay-3 { transition-delay: 0.3s; }
@@ -402,24 +539,23 @@ export default function Page() {
       `}</style>
 
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 py-4 px-4 transition-all duration-300 backdrop-blur-md bg-background/80 border-b border-border">
+      <header className="fixed top-0 left-0 right-0 z-50 py-4 px-4 transition-all duration-300 backdrop-blur-md border-b border-border/20">
         <div className="max-w-none mx-2 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-0 group">
             <div className="logo-container relative w-12 h-12 rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <Image 
-                src="/Lock-in.svg"
+                src="/lock-in.svg"
                 alt="Lock-in"
                 fill
                 className="object-contain p-1.5 relative z-10 rounded-xl"
               />
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <span className={`text-xl font-bold text-foreground group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-violet-300 group-hover:via-slate-500 group-hover:to-violet-700 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 ${alexandria.className}`}>Lock-in</span>
+            <span className={`text-xl font-bold text-black group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-violet-300 group-hover:via-slate-500 group-hover:to-violet-700 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 ${inter.className}`}>Lock-in</span>
           </Link>
           
           <div className="flex items-center gap-2">
-            <ThemeToggle />
           <Button 
             variant="ghost" 
             size="sm" 
@@ -447,13 +583,7 @@ export default function Page() {
                 >
                   Features
                 </a>
-                <a 
-                  href="#pricing" 
-                  className={`text-muted-foreground hover:text-foreground transition-colors py-2 ${workSans.className}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Pricing
-                </a>
+
                 <a 
                   href="#contact" 
                   className={`text-muted-foreground hover:text-foreground transition-colors py-2 ${workSans.className}`}
@@ -481,221 +611,217 @@ export default function Page() {
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
           {/* Background Elements */}
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-dotted-grid dark:bg-dotted-grid opacity-40"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-[#f6f5fa] via-purple-50 to-purple-100 dark:from-purple-900/20 dark:via-slate-900/15 dark:to-purple-800/10 animate-gradient-shift"></div>
+            <div className="absolute inset-0" style={{
+              background: `#ddd6f5`
+            }}></div>
             
-            {/* Moving background elements */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#f6f5fa]/50 via-transparent to-purple-100/50 dark:from-purple-900/10 dark:via-transparent dark:to-slate-900/10 pointer-events-none"></div>
+
           </div>
 
           <div className="max-w-[1200px] mx-auto text-center relative z-10 px-4">
-            {/* AI-Powered badge */}
-            <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-card/80 border border-border/50 rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
-              <div className="w-2 h-2 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full animate-pulse"></div>
-              <span className={`text-sm text-muted-foreground font-medium ${workSans.className}`}>AI-Powered Focus Coaching</span>
-            </div>
-            
-            {/* Tagline - one liner */}
-            <h1 className={`text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 mx-auto fade-in delay-1 leading-tight whitespace-nowrap ${alexandria.className}`}>
-              <span className="animate-text-gradient bg-gradient-to-r from-foreground via-purple-400 to-[#4a447b] bg-clip-text text-transparent">
-                Your personal focus coach.
-              </span>
+            {/* Main headline */}
+            <h1 className={`text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 mx-auto fade-in delay-1 leading-tight text-black ${playfairDisplay.className}`}>
+              Your personal focus assistant,<br />
+              focus made effortless.
             </h1>
 
             {/* Enhanced caption */}
             <div className="max-w-2xl mx-auto mb-8 fade-in delay-2">
-              <p className={`text-xl text-muted-foreground leading-relaxed ${lato.className}`}>
+              <p className={`text-xl leading-relaxed ${lato.className}`} style={{ color: '#6B7280' }}>
                 Focus like a pro, coached by productivity not timer
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8 fade-in delay-3">
-              <a 
-                href="https://f005.backblazeb2.com/file/lock-in-download/releases/lock-in.dmg"
+                    <a 
+                      href="https://f005.backblazeb2.com/file/lock-in-download/releases/lock-in.dmg"
                 className="inline-block group"
               >
-                <Button 
-                  variant="lockin" 
-                  size="lg" 
-                  className="group relative overflow-hidden bg-gradient-to-r from-purple-500 via-[#4a447b] to-purple-500 hover:from-purple-600 hover:via-purple-500 hover:to-purple-700 hover:shadow-[0_0_32px_8px_rgba(124,58,237,0.45)] hover:text-purple-200 active:text-purple-200 focus:text-purple-200 transition-all duration-500 transform hover:scale-105 shadow-2xl shadow-purple-500/30 border border-purple-400/20 py-5 px-8"
-                >
-                  <span className="relative z-10 flex items-center gap-3 px-2 group-hover:text-purple-200 group-active:text-purple-200 group-focus:text-purple-200">
+              <Button 
+                variant="lockin" 
+                size="lg" 
+                className="group relative overflow-hidden bg-black hover:bg-gray-900 transition-all duration-300 py-5 px-8"
+              >
+                  <span className="relative z-10 flex items-center gap-3 px-2 text-white">
                     <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 15V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <polyline points="7,10 12,15 17,10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09z"/>
+                        <path d="M15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z"/>
                       </svg>
                     </div>
                     <span className="font-semibold">Download for macOS</span>
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-purple-400 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute inset-0 bg-purple-700/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </Button>
-              </a>
-            </div>
-
-            {/* Enhanced Demo Video */}
-            <div id="hero-demo" className="relative w-full max-w-[1000px] mx-auto scroll-animation transform hover:scale-[1.02] transition-all duration-700 group">
-              <div className="relative aspect-video bg-neutral-900 border border-border rounded-2xl overflow-hidden flex items-center justify-center">
-                <div className="flex flex-col items-center justify-center w-full h-full">
-                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" stroke="#fff" strokeWidth="2" fill="none" />
-                    <polygon points="10,8 16,12 10,16" fill="#fff" />
-                  </svg>
-                </div>
+              </Button>
+                    </a>
               </div>
+
+            {/* Enhanced Demo */}
+            <div className="relative w-full max-w-[1000px] mx-auto">
+              <img
+                src="/starter-demo.png"
+                alt="Lock-in App Demo"
+                className="w-full h-auto rounded-2xl"
+              />
             </div>
           </div>
         </section>
 
-        {/* Features Section */}
-        <section id="features" className="py-20 relative overflow-hidden bg-background">
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="text-center mb-16">
-              <h2 className={`text-3xl md:text-4xl font-bold mb-4 animate-text-gradient bg-gradient-to-r from-foreground via-purple-400 to-[#4a447b] bg-clip-text text-transparent ${alexandria.className}`}>
-                Features that Make a Difference
-              </h2>
-              <p className={`text-muted-foreground max-w-2xl mx-auto text-lg ${lato.className}`}>
-                Designed with modern productivity science in mind, Lock-in helps you achieve deep focus with intelligent AI coaching.
-              </p>
-            </div>
+        {/* Full-width divider between Hero and Features */}
+        <div className="w-full">
+          <hr className="border-t border-gray-200" />
+        </div>
 
-            <div className="max-w-4xl mx-auto space-y-16">
+        {/* Features Section */}
+        <section id="features" className="py-20 relative bg-background overflow-x-hidden">
+          <div className="relative z-10">
+            <div className="space-y-8">
               {features.map((feature, index) => (
-                <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-12 scroll-animation`}>
-                  {/* Image Placeholder */}
-                  <div className="w-full md:w-1/2">
-                    <div className="aspect-video bg-card/80 backdrop-blur-sm border border-border rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(139,92,246,0.15)] group hover:shadow-[0_8px_30px_rgba(139,92,246,0.25)] transition-all duration-500">
+                <div key={index} className="feature-section">
+                  {/* Horizontal divider between features */}
+                  {index > 0 && (
+                    <div className={`container mx-auto px-4 ${index === 1 ? 'mb-8' : 'mb-16'}`}>
+                      <div className="max-w-6xl mx-auto">
+                        <hr className="border-t border-gray-200" />
+                      </div>
+                    </div>
+                  )}
+                  
+                  <div className={`scroll-animation ${index === 0 ? '-mb-16' : ''}`}>
+                  {index === 0 ? (
+                    // First feature: Original layout (title/description above, image below)
+                    <>
+                      {/* Text content with container */}
+                      <div className="container mx-auto px-4 mb-8 mt-16">
+                        <div className="max-w-6xl mx-auto">
+                          {/* Left-aligned Headline */}
+                          <h3 className={`text-3xl font-bold mb-3 text-black feature-title ${inter.className}`}>
+                            {feature.title}
+                          </h3>
+                          
+                          {/* Left-aligned Description */}
+                          <p 
+                            className={`text-xl leading-tight max-w-2xl feature-description ${lato.className}`}
+                            style={{ color: '#6B7280' }}
+                            dangerouslySetInnerHTML={{ __html: feature.description }}
+                          ></p>
+                        </div>
+                      </div>
+                      
+                      {/* Feature Demo Image */}
+                      <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] pl-32 md:pl-48 lg:pl-64 xl:pl-80 pr-0 scroll-animation">
+                    {feature.image ? (
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        width={1920}
+                        height={1080}
+                            className="object-contain w-full h-auto mock-window rounded-l-xl slide-in-right"
+                      />
+                    ) : (
+                          <div className="aspect-video bg-card/80 backdrop-blur-sm border border-border overflow-hidden mock-window rounded-l-xl">
                       <div className="w-full h-full flex items-center justify-center">
                         <div className="text-center">
-                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-[#4a447b] flex items-center justify-center mb-4 mx-auto shadow-lg shadow-purple-500/20">
-                            {feature.icon}
+                                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-[#4a447b] flex items-center justify-center mb-4 mx-auto">
+                                  {/* Feature Icon */}
+                                </div>
+                                <p className={`text-muted-foreground text-sm ${workSans.className}`}>Feature Preview</p>
+                              </div>
+                            </div>
                           </div>
+                        )}
+                      </div>
+                    </>
+                  ) : index === 1 ? (
+                    // Second feature: Text on left, image on right
+                    <div className="container mx-auto px-4">
+                      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+                        {/* Text content on left */}
+                        <div className="lg:w-1/2">
+                          <h3 className={`text-3xl font-bold mb-3 text-black feature-title ${inter.className}`}>
+                            {feature.title}
+                          </h3>
+                          <p 
+                            className={`text-xl leading-tight feature-description ${lato.className}`}
+                            style={{ color: '#6B7280' }}
+                            dangerouslySetInnerHTML={{ __html: feature.description }}
+                          ></p>
+                        </div>
+                        
+                        {/* Image on right */}
+                        <div className="lg:w-1/2 scroll-animation">
+                          {feature.image ? (
+                            <Image
+                              src={feature.image}
+                              alt={feature.title}
+                              width={1920}
+                              height={1080}
+                              className="object-contain w-full h-auto rounded-xl"
+                            />
+                          ) : (
+                            <div className="aspect-video bg-card/80 backdrop-blur-sm border border-border overflow-hidden rounded-xl">
+                              <div className="w-full h-full flex items-center justify-center">
+                                <div className="text-center">
+                                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-[#4a447b] flex items-center justify-center mb-4 mx-auto">
+                                    {/* Feature Icon */}
+                                  </div>
+                                  <p className={`text-muted-foreground text-sm ${workSans.className}`}>Feature Preview</p>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    // Third feature: Image on left, text on right
+                    <div className="container mx-auto px-4">
+                      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+                        {/* Image on left */}
+                        <div className="lg:w-3/5 lg:-ml-20 scroll-animation">
+                          {feature.image ? (
+                            <Image
+                              src={feature.image}
+                              alt={feature.title}
+                              width={1920}
+                              height={1080}
+                              className="object-contain w-full h-auto rounded-xl"
+                            />
+                          ) : (
+                            <div className="aspect-video bg-card/80 backdrop-blur-sm border border-border overflow-hidden rounded-xl">
+                              <div className="w-full h-full flex items-center justify-center">
+                                <div className="text-center">
+                                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-[#4a447b] flex items-center justify-center mb-4 mx-auto">
+                              {/* Feature Icon */}
+                </div>
                           <p className={`text-muted-foreground text-sm ${workSans.className}`}>Feature Preview</p>
                         </div>
                       </div>
                     </div>
+                    )}
                   </div>
 
-                  {/* Content */}
-                  <div className="w-full md:w-1/2 text-center md:text-left">
-                    <h3 className={`text-2xl md:text-3xl font-bold mb-4 text-foreground ${alexandria.className}`}>
-                      {feature.title}
-                    </h3>
-                    <p className={`text-muted-foreground text-lg leading-relaxed ${lato.className}`}>
-                      {feature.description}
-                    </p>
+                                                {/* Text content on right */}
+                        <div className="lg:w-2/5">
+                          <h3 className={`text-3xl font-bold mb-3 text-black feature-title ${inter.className}`}>
+                            {feature.title}
+                          </h3>
+                          <p 
+                            className={`text-xl leading-tight feature-description ${lato.className}`}
+                            style={{ color: '#6B7280' }}
+                            dangerouslySetInnerHTML={{ __html: feature.description }}
+                          ></p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                   </div>
-                </div>
+              </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Pricing Section */}
-        <section id="pricing" className="py-20 relative overflow-hidden bg-gradient-to-b from-background to-muted/30">
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="text-center mb-16">
-              <h2 className={`text-3xl md:text-4xl font-bold mb-4 animate-text-gradient bg-gradient-to-r from-foreground via-purple-400 to-[#4a447b] bg-clip-text text-transparent ${alexandria.className}`}>
-                Simple, Transparent Pricing
-              </h2>
-              <p className={`text-muted-foreground max-w-2xl mx-auto text-lg ${lato.className}`}>
-                Start free during beta, then choose the plan that works for you.
-              </p>
-            </div>
-            
-            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Monthly Plan */}
-              <div className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-8 shadow-[0_8px_30px_rgba(139,92,246,0.15)] scroll-animation flex flex-col">
-                <div className="text-center mb-6">
-                  <h3 className={`text-2xl font-bold text-foreground mb-2 ${alexandria.className}`}>Monthly</h3>
-                  <div className="flex items-baseline justify-center mb-4">
-                    <span className={`text-4xl font-bold text-foreground ${alexandria.className}`}>$8.99</span>
-                    <span className={`text-muted-foreground ml-2 ${workSans.className}`}>/month</span>
-                  </div>
-                </div>
-                <ul className="space-y-3 mb-8 flex-grow">
-                  <li className={`flex items-center text-muted-foreground ${lato.className}`}>
-                    <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    Advanced AI coaching
-                  </li>
-                  <li className={`flex items-center text-muted-foreground ${lato.className}`}>
-                    <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    Adaptive break coaching
-                  </li>
-                  <li className={`flex items-center text-muted-foreground ${lato.className}`}>
-                    <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    Detailed session insights
-                  </li>
-                  <li className={`flex items-center text-muted-foreground ${lato.className}`}>
-                    <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    Priority support
-                  </li>
-                </ul>
-                <Button variant="lockinOutline" className="w-full mt-auto">
-                  Start 24h Free Trial
-                </Button>
-              </div>
-              
-              {/* Yearly Plan */}
-              <div className="bg-card/80 backdrop-blur-sm border-2 border-purple-500/50 rounded-xl p-8 shadow-[0_8px_30px_rgba(74,68,123,0.25)] scroll-animation relative flex flex-col">
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className={`bg-gradient-to-r from-purple-400 to-[#4a447b] text-white px-4 py-1 rounded-full text-sm font-medium ${workSans.className}`}>
-                    Best Value
-                  </span>
-                </div>
-                <div className="text-center mb-6">
-                  <h3 className={`text-2xl font-bold text-foreground mb-2 ${alexandria.className}`}>Yearly</h3>
-                  <div className="flex items-baseline justify-center mb-2">
-                    <span className={`text-4xl font-bold text-foreground ${alexandria.className}`}>$59.88</span>
-                    <span className={`text-muted-foreground ml-2 ${workSans.className}`}>/year</span>
-                  </div>
-                  <div className={`text-sm text-green-400 mb-2 ${workSans.className}`}>
-                    Save 44% vs monthly
-                  </div>
-                </div>
-                <ul className="space-y-3 mb-8 flex-grow">
-                  <li className={`flex items-center text-muted-foreground ${lato.className}`}>
-                    <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    Advanced AI coaching
-                  </li>
-                  <li className={`flex items-center text-muted-foreground ${lato.className}`}>
-                    <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    Adaptive break coaching
-                  </li>
-                  <li className={`flex items-center text-muted-foreground ${lato.className}`}>
-                    <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    Detailed session insights
-                  </li>
-                  <li className={`flex items-center text-muted-foreground ${lato.className}`}>
-                    <svg className="w-5 h-5 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    Priority support
-                  </li>
-                </ul>
-                <Button variant="lockin" className="w-full mt-auto">
-                  Start 24h Free Trial
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+        
       </main>
 
       {/* Footer */}
@@ -703,18 +829,18 @@ export default function Page() {
         <div className="max-w-none mx-4 px-0 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-start">
             <div className="mb-6 md:mb-0 md:w-1/2">
-              <Link href="/" className="flex items-center gap-2 group mb-3">
+              <Link href="/" className="flex items-center gap-0 group mb-3">
                 <div className="logo-container relative w-12 h-12 rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <Image 
-                    src="/Lock-in.svg"
+                    src="/lock-in.svg"
                     alt="Lock-in"
                     fill
                     className="object-contain p-1.5 relative z-10 rounded-xl"
                   />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <span className={`text-xl font-bold text-foreground group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-[#4a447b] group-hover:to-purple-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 ${alexandria.className}`}>Lock-in</span>
+                <span className={`text-xl font-bold text-black group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-[#4a447b] group-hover:to-purple-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 ${inter.className}`}>Lock-in</span>
               </Link>
               <p className={`text-muted-foreground mt-2 text-sm max-w-xs ${workSans.className}`}>
                 Focus like a pro, coached by AI not timers.
@@ -723,7 +849,7 @@ export default function Page() {
             
             <div className="flex flex-col md:flex-row gap-8 md:gap-16">
               <div>
-                <h3 className={`text-foreground font-medium mb-2 ${alexandria.className}`}>Contact</h3>
+                <h3 className={`text-foreground font-medium mb-2 ${inter.className}`}>Contact</h3>
                 <ul className="space-y-1">
                   <li><a href="#" className={`text-muted-foreground hover:text-foreground transition-colors ${workSans.className}`}>Support</a></li>
                   <li><a href="#" className={`text-muted-foreground hover:text-foreground transition-colors ${workSans.className}`}>Feedback</a></li>
@@ -731,7 +857,7 @@ export default function Page() {
               </div>
               
               <div>
-                <h3 className={`text-foreground font-medium mb-2 ${alexandria.className}`}>Legal</h3>
+                <h3 className={`text-foreground font-medium mb-2 ${inter.className}`}>Legal</h3>
                 <ul className="space-y-1">
                   <li><a href="#" className={`text-muted-foreground hover:text-foreground transition-colors ${workSans.className}`}>Privacy Policy</a></li>
                   <li><a href="#" className={`text-muted-foreground hover:text-foreground transition-colors ${workSans.className}`}>Terms of Service</a></li>
@@ -749,34 +875,32 @@ export default function Page() {
               <a 
                 href="#" 
                 className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
-                aria-label="Twitter"
+                aria-label="YouTube"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                </svg>
-              </a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
               
               <a 
                 href="#" 
                 className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
-                aria-label="GitHub"
+                aria-label="X"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                </svg>
-              </a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+              </svg>
+            </a>
               
               <a 
                 href="#" 
                 className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
-                aria-label="LinkedIn"
+                aria-label="TikTok"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-              </a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+              </svg>
+            </a>
             </div>
           </div>
         </div>
