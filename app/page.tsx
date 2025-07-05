@@ -545,7 +545,7 @@ export default function Page() {
             <div className="logo-container relative w-12 h-12 rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <Image 
-                src="/Lock-in (5).png"
+                src="/lock-in-logo.png"
                 alt="Lock-in"
                 fill
                 className="object-contain p-1.5 relative z-10 rounded-xl"
@@ -833,7 +833,7 @@ export default function Page() {
                 <div className="logo-container relative w-12 h-12 rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <Image 
-                    src="/Lock-in (5).png"
+                    src="/lock-in-logo.png"
                     alt="Lock-in"
                     fill
                     className="object-contain p-1.5 relative z-10 rounded-xl"
