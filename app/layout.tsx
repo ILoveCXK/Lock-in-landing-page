@@ -33,11 +33,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lock-in | AI focus assistant",
     description: "Transform your productivity with Lock-in, the AI-powered focus assistant that coaches you to peak performance.",
-    url: "/lock-in-logo.png",
+    url: "/lock-in-metadata.png",
     siteName: "Lock-in",
     images: [
       {
-        url: "/lock-in-logo.png",
+        url: "/lock-in-metadata.png",
         width: 1200,
         height: 630,
         alt: "Lock-in - AI-Powered Focus Assistant",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lock-in | AI focus assistant",
     description: "Transform your productivity with Lock-in, the AI-powered focus assistant that coaches you to peak performance.",
-    images: ["/lock-in-logo.png"],
+    images: ["/lock-in-metadata.png"],
   },
   icons: {
     icon: [

@@ -622,7 +622,7 @@ export default function Page() {
             {/* Main headline */}
             <h1 className={`text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 mx-auto fade-in delay-1 leading-tight text-black ${playfairDisplay.className}`}>
               Your personal focus assistant,<br />
-              focus made effortless.
+              focus whenever, wherever.
             </h1>
 
             {/* Enhanced caption */}
