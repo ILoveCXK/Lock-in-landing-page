@@ -592,7 +592,7 @@ export default function Page() {
                   Contact
                 </a>
                 <a 
-                  href="https://f005.backblazeb2.com/file/lock-in-download/releases/lock-in.dmg"
+                  href="https://f005.backblazeb2.com/file/lock-in-download/releases/lock-in-1.0.0-arm64.dmg"
                   className="inline-block mt-4"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -634,7 +634,7 @@ export default function Page() {
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8 fade-in delay-3">
                     <a 
-                      href="https://f005.backblazeb2.com/file/lock-in-download/releases/lock-in.dmg"
+                      href="https://f005.backblazeb2.com/file/lock-in-download/releases/lock-in-1.0.0-arm64.dmg"
                 className="inline-block group"
               >
               <Button 
