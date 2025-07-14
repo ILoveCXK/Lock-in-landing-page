@@ -22,27 +22,44 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load custom Google Fonts (Playfair Display and Inter).
 
-## Building for Cloudflare Pages
+## Building for Production
 
-To build the project for Cloudflare Pages deployment:
+To build the project for production deployment:
 
 ```bash
-npm run build:cf
+npm run build
 ```
 
-This uses `@cloudflare/next-on-pages` to create a Cloudflare Pages compatible build.
+This creates a static export in the `out` directory, optimized for Cloudflare Pages.
 
 ## Features
 
 - **Modern Design**: Beautiful, responsive design with gradient animations
 - **AI Focus Assistant**: Landing page for Lock-in macOS app
-- **Waitlist Integration**: Google Forms integration for early access
+- **Maintenance Mode**: Toggle maintenance page via environment variables
 - **Download Section**: Direct download links for macOS app releases
-- **Optimized Performance**: Built for Cloudflare Pages with edge optimization
+- **Social Media Integration**: Links to YouTube, X, TikTok, and Instagram
+- **Optimized Performance**: Built for Cloudflare Pages with static export
+
+## Maintenance Mode
+
+Control maintenance mode using environment variables:
+
+### Local Development
+Create `.env.local`:
+```bash
+NEXT_PUBLIC_MAINTENANCE_MODE=true  # Enable maintenance mode
+NEXT_PUBLIC_MAINTENANCE_MODE=false # Disable maintenance mode
+```
+
+### Production (Cloudflare Pages)
+Set environment variable in Cloudflare Pages dashboard:
+- **Name**: `NEXT_PUBLIC_MAINTENANCE_MODE`
+- **Value**: `true` or `false`
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 with App Router
+- **Framework**: Next.js 14 with App Router (Static Export)
 - **Styling**: Tailwind CSS with custom animations
 - **UI Components**: Radix UI primitives
 - **Deployment**: Cloudflare Pages
@@ -50,13 +67,21 @@ This uses `@cloudflare/next-on-pages` to create a Cloudflare Pages compatible bu
 
 ## Deploy on Cloudflare Pages
 
-This project is optimized for deployment on Cloudflare Pages. The build process uses `@cloudflare/next-on-pages` to ensure compatibility with Cloudflare's edge runtime.
+This project is configured for deployment on Cloudflare Pages using static export.
 
 ### Deployment Configuration
 
-- **Build Command**: `npx @cloudflare/next-on-pages@1`
-- **Build Output Directory**: `.vercel/output/static`
-- **Node.js Version**: 18.x (specified in `.nvmrc`)
-- **Compatibility Flags**: `nodejs_compat` (configured in `wrangler.toml`)
+- **Build Command**: `npm run build`
+- **Build Output Directory**: `out`
+- **Node.js Version**: 18.x
+- **Framework Preset**: None (Static)
 
-For more details about deploying Next.js to Cloudflare Pages, check out the [official documentation](https://developers.cloudflare.com/pages/framework-guides/deploy-a-nextjs-site/).
+### Cloudflare Pages Setup
+
+1. Connect your GitHub repository to Cloudflare Pages
+2. Set build command to `npm run build`
+3. Set build output directory to `out`
+4. Configure environment variables as needed
+5. Deploy!
+
+The static export ensures compatibility with Cloudflare's edge network without requiring server-side rendering.
