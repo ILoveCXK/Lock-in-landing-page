@@ -70,11 +70,6 @@ export default function Page() {
   // Check for maintenance mode
   const isMaintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true';
 
-  // If maintenance mode is enabled, show maintenance page
-  if (isMaintenanceMode) {
-    return <MaintenancePage />;
-  }
-
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -377,6 +372,11 @@ export default function Page() {
     };
   }, []);
 
+  // If maintenance mode is enabled, show maintenance page
+  if (isMaintenanceMode) {
+    return <MaintenancePage />;
+  }
+
   return (
     <div className={`min-h-screen flex flex-col bg-background ${lato.className}`}>
       <style jsx global>{`
@@ -666,9 +666,11 @@ export default function Page() {
 
             {/* Enhanced Demo */}
             <div className="relative w-full max-w-[1000px] mx-auto">
-              <img
+              <Image
                 src="/starter-demo.png"
                 alt="Lock-in App Demo"
+                width={1000}
+                height={600}
                 className="w-full h-auto rounded-2xl"
               />
             </div>

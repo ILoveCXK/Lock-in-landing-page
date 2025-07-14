@@ -67,9 +67,9 @@ export function MaintenancePage() {
 
         {/* Description */}
         <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-          We're currently performing some updates to improve your experience. 
+          We&apos;re currently performing some updates to improve your experience. 
           <br />
-          <span className="font-medium">We'll be back shortly!</span>
+          <span className="font-medium">We&apos;ll be back shortly!</span>
         </p>
 
         {/* Estimated time */}
