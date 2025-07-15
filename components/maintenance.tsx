@@ -90,10 +90,10 @@ export function MaintenancePage() {
           <p className="mt-1">
             Contact us at{' '}
             <a 
-              href="mailto:support@lock-in.app" 
+              href="mailto:assistance.lockin@gmail.com" 
               className="text-blue-600 hover:text-blue-800 underline"
             >
-              support@lock-in.app
+              assistance.lockin@gmail.com
             </a>
           </p>
         </div>
