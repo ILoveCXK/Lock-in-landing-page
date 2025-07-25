@@ -1,7 +1,6 @@
 'use client'
 
 import { Inter, Playfair_Display } from 'next/font/google'
-import Image from "next/image"
 import { useState, useEffect } from 'react'
 
 const inter = Inter({
@@ -29,17 +28,6 @@ export function MaintenancePage() {
   return (
     <div className={`min-h-screen flex items-center justify-center bg-background ${inter.className}`}>
       <div className="max-w-md mx-auto text-center px-4">
-        {/* Logo */}
-        <div className="mb-8">
-          <div className="w-24 h-24 mx-auto relative">
-            <Image 
-              src="/lock-in-logo.png"
-              alt="Lock-in"
-              fill
-              className="object-contain"
-            />
-          </div>
-        </div>
 
         {/* Maintenance Icon */}
         <div className="mb-6">
