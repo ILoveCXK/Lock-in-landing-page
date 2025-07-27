@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { MaintenancePage } from "@/components/maintenance"
 
 import Link from "next/link"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { Alexandria, Lato, Work_Sans, Playfair_Display, Inter } from 'next/font/google'
 import Image from "next/image"
 
@@ -65,7 +65,6 @@ const features = [
 
 export default function Page() {
   const observerRef = useRef<IntersectionObserver | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Check for maintenance mode
   const isMaintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true';
@@ -255,12 +254,12 @@ export default function Page() {
         opacity: 1;
       }
 
-              .mock-window {
-          -webkit-mask-image: linear-gradient(to bottom,
-              black 70%, transparent 100%);
-          mask-image: linear-gradient(to bottom,
-              black 70%, transparent 100%);
-        }
+      .mock-window {
+        -webkit-mask-image: linear-gradient(to bottom,
+            black 85%, transparent 100%);
+        mask-image: linear-gradient(to bottom,
+            black 85%, transparent 100%);
+      }
 
         @keyframes cloud-drift-1 {
           0%, 100% {
@@ -548,100 +547,50 @@ export default function Page() {
       `}</style>
 
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 py-4 px-4 transition-all duration-300 backdrop-blur-md border-b border-border/20">
-        <div className="max-w-none mx-2 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-0 group">
-            <div className="logo-container relative w-12 h-12 rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
+      <header className="fixed top-0 left-0 right-0 z-50 py-2 sm:py-4 px-4 transition-all duration-300 backdrop-blur-md border-b border-border/20">
+        <div className="max-w-7xl mx-auto flex items-center justify-center">
+          <Link href="/" className="flex items-center gap-1 sm:gap-2 group">
+            <div className="logo-container relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <Image 
                 src="/lock-in-logo.png"
                 alt="Lock-in"
                 fill
-                className="object-contain p-1.5 relative z-10 rounded-xl"
+                sizes="(max-width: 640px) 32px, (max-width: 768px) 40px, 48px"
+                className="object-contain p-1 sm:p-1.5 relative z-10 rounded-xl"
               />
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <span className={`text-xl font-bold text-black group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-violet-300 group-hover:via-slate-500 group-hover:to-violet-700 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 ${inter.className}`}>Lock-in</span>
+            <span className={`text-lg sm:text-xl font-bold text-black group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-violet-300 group-hover:via-slate-500 group-hover:to-violet-700 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 ${inter.className}`}>Lock-in</span>
           </Link>
-          
-          <div className="flex items-center gap-2">
-          <Button 
-            variant="ghost" 
-            size="sm" 
-              className="text-muted-foreground hover:text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="4" x2="20" y1="12" y2="12"></line>
-              <line x1="4" x2="20" y1="6" y2="6"></line>
-              <line x1="4" x2="20" y1="18" y2="18"></line>
-            </svg>
-          </Button>
-          </div>
         </div>
-
-        {/* Menu Overlay */}
-        {isMobileMenuOpen && (
-          <div className="absolute top-full right-2 w-64 bg-background/95 backdrop-blur-md border border-border rounded-bl-lg rounded-br-lg shadow-xl">
-            <div className="px-6 py-6">
-              <nav className="flex flex-col space-y-4">
-                <a 
-                  href="#features" 
-                  className={`text-muted-foreground hover:text-foreground transition-colors py-2 ${workSans.className}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Features
-                </a>
-
-                <a 
-                  href="#contact" 
-                  className={`text-muted-foreground hover:text-foreground transition-colors py-2 ${workSans.className}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Contact
-                </a>
-                <a 
-                  href="https://downloads.lock-in.ai/file/lock-in-download/releases/lock-in-1.0.0-arm64.dmg"
-                  className="inline-block mt-4"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <Button variant="lockin" size="sm" className="w-full">
-                    Download
-                  </Button>
-                </a>
-              </nav>
-            </div>
-          </div>
-        )}
       </header>
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-32">
           {/* Background Elements */}
           <div className="absolute inset-0">
             <div className="absolute inset-0" style={{
               background: `#ddd6f5`
             }}></div>
-            
-
           </div>
 
-          <div className="max-w-[1200px] mx-auto text-center relative z-10 px-4">
+          <div className="w-full max-w-7xl mx-auto text-center relative z-10 px-4 sm:px-6 lg:px-8">
             {/* Main headline */}
-            <h1 className={`text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 mx-auto fade-in delay-1 leading-tight text-black ${playfairDisplay.className}`}>
+            <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-6 sm:mb-8 mx-auto fade-in delay-1 leading-tight text-black ${playfairDisplay.className}`}>
               Your personal focus assistant,<br />
               focus whenever, wherever.
             </h1>
 
             {/* Enhanced caption */}
-            <div className="max-w-2xl mx-auto mb-8 fade-in delay-2">
-              <p className={`text-xl leading-relaxed ${lato.className}`} style={{ color: '#6B7280' }}>
+            <div className="max-w-2xl mx-auto mb-6 sm:mb-8 fade-in delay-2">
+              <p className={`text-lg sm:text-xl leading-relaxed ${lato.className}`} style={{ color: '#6B7280' }}>
                 Focus like a pro, coached by productivity not timer
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8 fade-in delay-3">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8 sm:mb-12 fade-in delay-3">
                     <a 
                       href="https://downloads.lock-in.ai/file/lock-in-download/releases/lock-in-1.0.0-arm64.dmg"
                 className="inline-block group"
@@ -649,11 +598,11 @@ export default function Page() {
               <Button 
                 variant="lockin" 
                 size="lg" 
-                className="group relative overflow-hidden bg-black hover:bg-gray-900 transition-all duration-300 py-5 px-8"
+                className="group relative overflow-hidden bg-black hover:bg-gray-900 transition-all duration-300 py-4 sm:py-5 px-6 sm:px-8 text-sm sm:text-base"
               >
-                  <span className="relative z-10 flex items-center gap-3 px-2 text-white">
-                    <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <span className="relative z-10 flex items-center gap-2 sm:gap-3 px-1 sm:px-2 text-white">
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white/20 flex items-center justify-center">
+                      <svg width="10" height="10" className="sm:w-3 sm:h-3" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09z"/>
                         <path d="M15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z"/>
                       </svg>
@@ -665,13 +614,15 @@ export default function Page() {
               </div>
 
             {/* Enhanced Demo */}
-            <div className="relative w-full max-w-[1000px] mx-auto">
+            <div className="relative w-full max-w-5xl mx-auto">
               <Image
                 src="/starter-demo.png"
                 alt="Lock-in App Demo"
                 width={1000}
                 height={600}
-                className="w-full h-auto rounded-2xl"
+                sizes="(max-width: 640px) 95vw, (max-width: 1024px) 90vw, 80vw"
+                className="w-full h-auto rounded-lg sm:rounded-xl lg:rounded-2xl"
+                priority
               />
             </div>
           </div>
@@ -683,93 +634,97 @@ export default function Page() {
         </div>
 
         {/* Features Section */}
-        <section id="features" className="py-20 relative bg-background overflow-x-hidden">
+        <section id="features" className="py-12 sm:py-16 lg:py-20 relative bg-background overflow-hidden">
           <div className="relative z-10">
-            <div className="space-y-8">
+            <div className="space-y-12 sm:space-y-16 lg:space-y-20">
               {features.map((feature, index) => (
                 <div key={index} className="feature-section">
                   {/* Horizontal divider between features */}
                   {index > 0 && (
-                    <div className={`container mx-auto px-4 ${index === 1 ? 'mb-8' : 'mb-16'}`}>
-                      <div className="max-w-6xl mx-auto">
+                    <div className="w-full px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12 lg:mb-16">
+                      <div className="max-w-7xl mx-auto">
                         <hr className="border-t border-gray-200" />
                       </div>
                     </div>
                   )}
                   
-                  <div className={`scroll-animation ${index === 0 ? '-mb-16' : ''}`}>
+                  <div className="scroll-animation">
                   {index === 0 ? (
                     // First feature: Original layout (title/description above, image below)
                     <>
                       {/* Text content with container */}
-                      <div className="container mx-auto px-4 mb-8 mt-16">
-                        <div className="max-w-6xl mx-auto">
+                      <div className="w-full px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8 lg:mb-12">
+                        <div className="max-w-7xl mx-auto">
                           {/* Left-aligned Headline */}
-                          <h3 className={`text-3xl font-bold mb-3 text-black feature-title ${inter.className}`}>
+                          <h3 className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-black feature-title ${inter.className}`}>
                             {feature.title}
                           </h3>
                           
                           {/* Left-aligned Description */}
                           <p 
-                            className={`text-xl leading-tight max-w-2xl feature-description ${lato.className}`}
+                            className={`text-lg sm:text-xl lg:text-2xl leading-tight max-w-4xl feature-description ${lato.className}`}
                             style={{ color: '#6B7280' }}
                             dangerouslySetInnerHTML={{ __html: feature.description }}
                           ></p>
                         </div>
                       </div>
                       
-                      {/* Feature Demo Image */}
-                      <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] pl-32 md:pl-48 lg:pl-64 xl:pl-80 pr-0 scroll-animation">
-                    {feature.image ? (
-                      <Image
-                        src={feature.image}
-                        alt={feature.title}
-                        width={1920}
-                        height={1080}
-                            className="object-contain w-full h-auto mock-window rounded-l-xl slide-in-right"
-                      />
-                    ) : (
-                          <div className="aspect-video bg-card/80 backdrop-blur-sm border border-border overflow-hidden mock-window rounded-l-xl">
-                      <div className="w-full h-full flex items-center justify-center">
-                        <div className="text-center">
-                                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-[#4a447b] flex items-center justify-center mb-4 mx-auto">
-                                  {/* Feature Icon */}
-                                </div>
-                                <p className={`text-muted-foreground text-sm ${workSans.className}`}>Feature Preview</p>
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </>
-                  ) : index === 1 ? (
-                    // Second feature: Text on left, image on right
-                    <div className="container mx-auto px-4">
-                      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-                        {/* Text content on left */}
-                        <div className="lg:w-1/2">
-                          <h3 className={`text-3xl font-bold mb-3 text-black feature-title ${inter.className}`}>
-                            {feature.title}
-                          </h3>
-                          <p 
-                            className={`text-xl leading-tight feature-description ${lato.className}`}
-                            style={{ color: '#6B7280' }}
-                            dangerouslySetInnerHTML={{ __html: feature.description }}
-                          ></p>
-                        </div>
-                        
-                        {/* Image on right */}
-                        <div className="lg:w-1/2 scroll-animation">
+                      {/* Feature Demo Image - Full width on mobile, contained on larger screens */}
+                      <div className="w-full overflow-hidden">
+                        <div className="lg:pl-8 xl:pl-16 2xl:pl-24">
                           {feature.image ? (
                             <Image
                               src={feature.image}
                               alt={feature.title}
                               width={1920}
                               height={1080}
-                              className="object-contain w-full h-auto rounded-xl"
+                              sizes="(max-width: 1024px) 100vw, 90vw"
+                              className="object-contain w-full h-auto mock-window rounded-l-none sm:rounded-l-xl slide-in-right"
                             />
                           ) : (
-                            <div className="aspect-video bg-card/80 backdrop-blur-sm border border-border overflow-hidden rounded-xl">
+                            <div className="aspect-video bg-card/80 backdrop-blur-sm border border-border overflow-hidden mock-window rounded-l-none sm:rounded-l-xl">
+                              <div className="w-full h-full flex items-center justify-center">
+                                <div className="text-center">
+                                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-[#4a447b] flex items-center justify-center mb-4 mx-auto">
+                                    {/* Feature Icon */}
+                                  </div>
+                                  <p className={`text-muted-foreground text-sm ${workSans.className}`}>Feature Preview</p>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </>
+                  ) : index === 1 ? (
+                    // Second feature: Text on left, image on right
+                    <div className="w-full px-4 sm:px-6 lg:px-8">
+                      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-12 xl:gap-16">
+                        {/* Text content on left */}
+                        <div className="w-full lg:w-1/2">
+                          <h3 className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-black feature-title ${inter.className}`}>
+                            {feature.title}
+                          </h3>
+                          <p 
+                            className={`text-lg sm:text-xl lg:text-2xl leading-tight feature-description ${lato.className}`}
+                            style={{ color: '#6B7280' }}
+                            dangerouslySetInnerHTML={{ __html: feature.description }}
+                          ></p>
+                        </div>
+                        
+                        {/* Image on right */}
+                        <div className="w-full lg:w-1/2 scroll-animation">
+                          {feature.image ? (
+                            <Image
+                              src={feature.image}
+                              alt={feature.title}
+                              width={1920}
+                              height={1080}
+                              sizes="(max-width: 1024px) 95vw, 50vw"
+                              className="object-contain w-full h-auto rounded-lg sm:rounded-xl"
+                            />
+                          ) : (
+                            <div className="aspect-video bg-card/80 backdrop-blur-sm border border-border overflow-hidden rounded-lg sm:rounded-xl">
                               <div className="w-full h-full flex items-center justify-center">
                                 <div className="text-center">
                                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-[#4a447b] flex items-center justify-center mb-4 mx-auto">
@@ -785,20 +740,21 @@ export default function Page() {
                     </div>
                   ) : (
                     // Third feature: Image on left, text on right
-                    <div className="container mx-auto px-4">
-                      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+                    <div className="w-full px-4 sm:px-6 lg:px-8">
+                      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-12 xl:gap-16">
                         {/* Image on left */}
-                        <div className="lg:w-3/5 lg:-ml-20 scroll-animation">
+                        <div className="w-full lg:w-3/5 lg:-ml-4 xl:-ml-8 2xl:-ml-12 scroll-animation order-2 lg:order-1">
                           {feature.image ? (
                             <Image
                               src={feature.image}
                               alt={feature.title}
                               width={1920}
                               height={1080}
-                              className="object-contain w-full h-auto rounded-xl"
+                              sizes="(max-width: 1024px) 95vw, 60vw"
+                              className="object-contain w-full h-auto rounded-lg sm:rounded-xl"
                             />
                           ) : (
-                            <div className="aspect-video bg-card/80 backdrop-blur-sm border border-border overflow-hidden rounded-xl">
+                            <div className="aspect-video bg-card/80 backdrop-blur-sm border border-border overflow-hidden rounded-lg sm:rounded-xl">
                               <div className="w-full h-full flex items-center justify-center">
                                 <div className="text-center">
                                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-[#4a447b] flex items-center justify-center mb-4 mx-auto">
@@ -811,13 +767,13 @@ export default function Page() {
                     )}
                   </div>
 
-                                                {/* Text content on right */}
-                        <div className="lg:w-2/5">
-                          <h3 className={`text-3xl font-bold mb-3 text-black feature-title ${inter.className}`}>
+                        {/* Text content on right */}
+                        <div className="w-full lg:w-2/5 order-1 lg:order-2">
+                          <h3 className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-black feature-title ${inter.className}`}>
                             {feature.title}
                           </h3>
                           <p 
-                            className={`text-xl leading-tight feature-description ${lato.className}`}
+                            className={`text-lg sm:text-xl lg:text-2xl leading-tight feature-description ${lato.className}`}
                             style={{ color: '#6B7280' }}
                             dangerouslySetInnerHTML={{ __html: feature.description }}
                           ></p>
@@ -836,22 +792,23 @@ export default function Page() {
       </main>
 
       {/* Footer */}
-      <footer id="contact" className="border-t border-border py-8 relative overflow-hidden">
-        <div className="max-w-none mx-4 px-0 relative z-10">
+      <footer id="contact" className="border-t border-border py-6 sm:py-8 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-start">
             <div className="mb-6 md:mb-0 md:w-1/2">
-              <Link href="/" className="flex items-center gap-0 group mb-3">
-                <div className="logo-container relative w-12 h-12 rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
+              <Link href="/" className="flex items-center gap-1 sm:gap-2 group mb-3">
+                <div className="logo-container relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <Image 
                     src="/lock-in-logo.png"
                     alt="Lock-in"
                     fill
-                    className="object-contain p-1.5 relative z-10 rounded-xl"
+                    sizes="(max-width: 640px) 40px, 48px"
+                    className="object-contain p-1 sm:p-1.5 relative z-10 rounded-xl"
                   />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <span className={`text-xl font-bold text-black group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-[#4a447b] group-hover:to-purple-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 ${inter.className}`}>Lock-in</span>
+                <span className={`text-lg sm:text-xl font-bold text-black group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-[#4a447b] group-hover:to-purple-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 ${inter.className}`}>Lock-in</span>
               </Link>
               <p className={`text-muted-foreground mt-2 text-sm max-w-xs ${workSans.className}`}>
                 Focus like a pro, coached by AI not timers.
@@ -886,10 +843,10 @@ export default function Page() {
               <a 
                 href="https://www.youtube.com/@lock-in-focus-app" 
                 target="_blank" rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
                 aria-label="YouTube"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="sm:w-18 sm:h-18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
             </a>
@@ -897,10 +854,10 @@ export default function Page() {
               <a 
                 href="https://x.com/lockin_focus" 
                 target="_blank" rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
                 aria-label="X"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="sm:w-18 sm:h-18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
               </svg>
             </a>
@@ -908,10 +865,10 @@ export default function Page() {
               <a 
                 href="https://www.tiktok.com/@lockin_focus_app" 
                 target="_blank" rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
                 aria-label="TikTok"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="sm:w-18 sm:h-18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
               </svg>
             </a>
@@ -919,10 +876,10 @@ export default function Page() {
               <a 
                 href="https://www.instagram.com/lockin_focus_app" 
                 target="_blank" rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
                 aria-label="Instagram"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="sm:w-18 sm:h-18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.241-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.414 3.678 1.395c-.98.98-1.263 2.092-1.322 3.373C2.013 5.668 2 6.077 2 12c0 5.923.013 6.332.072 7.612.059 1.281.342 2.393 1.322 3.373.98.98 2.092 1.263 3.373 1.322C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.281-.059 2.393-.342 3.373-1.322.98-.98 1.263-2.092 1.322-3.373.059-1.28.072-1.689.072-7.612 0-5.923-.013-6.332-.072-7.612-.059-1.281-.342-2.393-1.322-3.373-.98-.98-2.092-1.263-3.373-1.322C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/>
                 </svg>
               </a>

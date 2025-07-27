@@ -84,6 +84,9 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: '#4a447b',
 }
 
 export default function RootLayout({
@@ -94,6 +97,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
         <link rel="icon" type="image/png" sizes="32x32" href="/lock-in-logo.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/lock-in-logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/lock-in-logo.png" />
