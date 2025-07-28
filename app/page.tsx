@@ -53,13 +53,13 @@ const features = [
   },
   {
     image: "/break-coaching-demo.png",
-    title: "Adaptive Break Coaching",
-    description: "When focus dips, Lock-in suggests quick science-backed resets like<br />water break or sixty-second stretch to revive attention."
+    title: "Adaptive Break Suggestion",
+    description: "When focus dips, Lock-in suggests quick science-backed resets like water break or sixty-second stretch to revive attention."
   },
   {
     image: "/report-demo.png",
     title: "Session Insights",
-    description: "End each session with a clear report: focus score, <br />distractions, recovery time, plus simple tips for next round."
+    description: "End each session with a clear report: focus score, distractions, recovery time, plus simple tips for next round."
   }
 ];
 
@@ -549,7 +549,7 @@ export default function Page() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 py-2 sm:py-4 px-4 transition-all duration-300 backdrop-blur-md border-b border-border/20">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-1 sm:gap-2 group">
+          <Link href="/" className="flex items-center gap-0 group">
             <div className="logo-container relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <Image 
@@ -579,18 +579,18 @@ export default function Page() {
 
           <div className="w-full max-w-7xl mx-auto text-center relative z-10 px-4 sm:px-6 lg:px-8">
             {/* Main headline */}
-            <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-6 sm:mb-8 mx-auto fade-in delay-1 leading-tight text-black ${playfairDisplay.className}`}>
+            <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-6 sm:mb-8 mx-auto fade-in delay-1 text-black ${playfairDisplay.className}`} style={{ lineHeight: '1.2' }}>
               Your personal focus assistant,<br />
               focus whenever, wherever.
             </h1>
 
             {/* Enhanced caption */}
-            <div className="max-w-2xl mx-auto mb-6 sm:mb-8 fade-in delay-2">
+            <div className="max-w-2xl mx-auto mb-12 sm:mb-16 fade-in delay-2">
               <p className={`text-lg sm:text-xl leading-relaxed ${lato.className}`} style={{ color: '#6B7280' }}>
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8 sm:mb-12 fade-in delay-3">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-2 sm:mb-3 fade-in delay-3">
                     <a 
                       href="https://downloads.lock-in.ai/file/lock-in-download/releases/lock-in-1.0.0-arm64.dmg"
                 className="inline-block group"
@@ -662,7 +662,7 @@ export default function Page() {
                           
                           {/* Left-aligned Description */}
                           <p 
-                            className={`text-lg sm:text-xl lg:text-2xl leading-tight max-w-4xl feature-description ${lato.className}`}
+                            className={`text-base sm:text-lg lg:text-xl leading-relaxed max-w-4xl feature-description text-gray-600 ${lato.className}`}
                             style={{ color: '#6B7280' }}
                             dangerouslySetInnerHTML={{ __html: feature.description }}
                           ></p>
@@ -706,7 +706,7 @@ export default function Page() {
                             {feature.title}
                           </h3>
                           <p 
-                            className={`text-lg sm:text-xl lg:text-2xl leading-tight feature-description ${lato.className}`}
+                            className={`text-base sm:text-lg lg:text-xl leading-relaxed feature-description text-gray-600 ${lato.className}`}
                             style={{ color: '#6B7280' }}
                             dangerouslySetInnerHTML={{ __html: feature.description }}
                           ></p>
@@ -773,7 +773,7 @@ export default function Page() {
                             {feature.title}
                           </h3>
                           <p 
-                            className={`text-lg sm:text-xl lg:text-2xl leading-tight feature-description ${lato.className}`}
+                            className={`text-base sm:text-lg lg:text-xl leading-relaxed feature-description text-gray-600 ${lato.className}`}
                             style={{ color: '#6B7280' }}
                             dangerouslySetInnerHTML={{ __html: feature.description }}
                           ></p>
