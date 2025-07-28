@@ -1,0 +1,27 @@
+{
+  "name": "Lock-in | AI focus assistant",
+  "short_name": "Lock-in",
+  "description": "Transform your productivity with Lock-in, the AI-powered focus assistant that coaches you to peak performance.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ddd6f5",
+  "theme_color": "#4a447b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/lock-in-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/lock-in-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+} 
