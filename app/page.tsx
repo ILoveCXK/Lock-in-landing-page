@@ -254,12 +254,12 @@ export default function Page() {
         opacity: 1;
       }
 
-      .mock-window {
-        -webkit-mask-image: linear-gradient(to bottom,
+              .mock-window {
+          -webkit-mask-image: linear-gradient(to bottom,
             black 85%, transparent 100%);
-        mask-image: linear-gradient(to bottom,
+          mask-image: linear-gradient(to bottom,
             black 85%, transparent 100%);
-      }
+        }
 
         @keyframes cloud-drift-1 {
           0%, 100% {
@@ -548,7 +548,7 @@ export default function Page() {
 
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 py-2 sm:py-4 px-4 transition-all duration-300 backdrop-blur-md border-b border-border/20">
-        <div className="max-w-7xl mx-auto flex items-center justify-center">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-1 sm:gap-2 group">
             <div className="logo-container relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -563,6 +563,7 @@ export default function Page() {
             </div>
             <span className={`text-lg sm:text-xl font-bold text-black group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-violet-300 group-hover:via-slate-500 group-hover:to-violet-700 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 ${inter.className}`}>Lock-in</span>
           </Link>
+          <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"></div>
         </div>
       </header>
 
@@ -672,27 +673,27 @@ export default function Page() {
                       {/* Feature Demo Image - Full width on mobile, contained on larger screens */}
                       <div className="w-full overflow-hidden">
                         <div className="lg:pl-8 xl:pl-16 2xl:pl-24">
-                          {feature.image ? (
-                            <Image
-                              src={feature.image}
-                              alt={feature.title}
-                              width={1920}
-                              height={1080}
+                    {feature.image ? (
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        width={1920}
+                        height={1080}
                               sizes="(max-width: 1024px) 100vw, 90vw"
                               className="object-contain w-full h-auto mock-window rounded-l-none sm:rounded-l-xl slide-in-right"
-                            />
-                          ) : (
+                      />
+                    ) : (
                             <div className="aspect-video bg-card/80 backdrop-blur-sm border border-border overflow-hidden mock-window rounded-l-none sm:rounded-l-xl">
-                              <div className="w-full h-full flex items-center justify-center">
-                                <div className="text-center">
-                                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-[#4a447b] flex items-center justify-center mb-4 mx-auto">
-                                    {/* Feature Icon */}
-                                  </div>
-                                  <p className={`text-muted-foreground text-sm ${workSans.className}`}>Feature Preview</p>
+                      <div className="w-full h-full flex items-center justify-center">
+                        <div className="text-center">
+                                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-[#4a447b] flex items-center justify-center mb-4 mx-auto">
+                                  {/* Feature Icon */}
                                 </div>
+                                <p className={`text-muted-foreground text-sm ${workSans.className}`}>Feature Preview</p>
                               </div>
                             </div>
-                          )}
+                          </div>
+                        )}
                         </div>
                       </div>
                     </>
@@ -767,7 +768,7 @@ export default function Page() {
                     )}
                   </div>
 
-                        {/* Text content on right */}
+                                                {/* Text content on right */}
                         <div className="w-full lg:w-2/5 order-1 lg:order-2">
                           <h3 className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-black feature-title ${inter.className}`}>
                             {feature.title}
