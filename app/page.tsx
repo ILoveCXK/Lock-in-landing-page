@@ -587,7 +587,6 @@ export default function Page() {
             {/* Enhanced caption */}
             <div className="max-w-2xl mx-auto mb-6 sm:mb-8 fade-in delay-2">
               <p className={`text-lg sm:text-xl leading-relaxed ${lato.className}`} style={{ color: '#6B7280' }}>
-                Focus like a pro, coached by productivity not timer
               </p>
             </div>
 
@@ -812,7 +811,7 @@ export default function Page() {
                 <span className={`text-lg sm:text-xl font-bold text-black group-hover:animate-text-gradient group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-[#4a447b] group-hover:to-purple-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 ${inter.className}`}>Lock-in</span>
               </Link>
               <p className={`text-muted-foreground mt-2 text-sm max-w-xs ${workSans.className}`}>
-                Focus like a pro, coached by AI not timers.
+                Focus whenever, wherever.
               </p>
             </div>
             
