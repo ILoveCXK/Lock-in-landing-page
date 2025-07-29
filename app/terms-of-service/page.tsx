@@ -68,7 +68,7 @@ export default function TermsOfService() {
             </ul>
             
             <h2 className={`text-2xl font-semibold mb-4 mt-8 ${inter.className}`}>Limitation of Liability</h2>
-            <p className="mb-6 text-gray-700">Lock-in is provided "as is" without warranties. We are not liable for any damages arising from the use of our service.</p>
+            <p className="mb-6 text-gray-700">Lock-in is provided &quot;as is&quot; without warranties. We are not liable for any damages arising from the use of our service.</p>
             
             <h2 className={`text-2xl font-semibold mb-4 mt-8 ${inter.className}`}>Changes to Terms</h2>
             <p className="mb-6 text-gray-700">We may update these terms from time to time. Continued use of the app constitutes acceptance of new terms.</p>
