@@ -592,7 +592,7 @@ export default function Page() {
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-2 sm:mb-3 fade-in delay-3">
                     <a 
-                      href="https://downloads.lock-in.ai/file/lock-in-download/releases/lock-in-1.0.0-arm64.dmg"
+                      href="https://downloads.lock-in.ai/file/lock-in-download/releases/Lock-in-1.0.0-arm64.dmg"
                 className="inline-block group"
               >
               <Button 
