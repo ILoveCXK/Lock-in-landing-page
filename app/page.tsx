@@ -590,7 +590,17 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-2 sm:mb-3 fade-in delay-3">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-2 sm:mb-3 fade-in delay-3">
+              {/* Product Hunt Badge */}
+              <a href="https://www.producthunt.com/products/lock-in-2?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-lock&#0045;in&#0045;3" target="_blank" rel="noopener noreferrer">
+                <img 
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=985936&theme=neutral&t=1753886494723" 
+                  alt="Lock&#0045;in - your&#0032;personal&#0032;focus&#0032;assistant | Product Hunt" 
+                  style={{ width: '250px', height: '54px' }} 
+                  width="250" 
+                  height="54" 
+                />
+              </a>
                     <a 
                       href="https://downloads.lock-in.ai/file/lock-in-download/releases/Lock-in-1.0.0-arm64.dmg"
                 className="inline-block group"
@@ -598,16 +608,17 @@ export default function Page() {
               <Button 
                 variant="lockin" 
                 size="lg" 
-                className="group relative overflow-hidden bg-black hover:bg-gray-900 transition-all duration-300 py-4 sm:py-5 px-6 sm:px-8 text-sm sm:text-base"
+                className="group relative overflow-hidden bg-black hover:bg-gray-900 transition-all duration-300 pr-6 sm:pr-8 pl-3 sm:pl-4 text-sm sm:text-base"
+                style={{ height: '54px' }}
               >
-                  <span className="relative z-10 flex items-center gap-2 sm:gap-3 px-1 sm:px-2 text-white">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white/20 flex items-center justify-center">
-                      <svg width="10" height="10" className="sm:w-3 sm:h-3" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <span className="relative z-10 flex items-center gap-3 text-white">
+                    <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09z"/>
                         <path d="M15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z"/>
                       </svg>
                     </div>
-                    <span className="font-semibold">Download for macOS</span>
+                    <span className="font-semibold text-base">Download for macOS</span>
                   </span>
               </Button>
                     </a>
