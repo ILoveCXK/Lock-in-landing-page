@@ -26,18 +26,18 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://lock-in.app'),
+  metadataBase: new URL('https://lock-in.ai'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: "Lock-in | AI focus assistant",
     description: "Transform your productivity with Lock-in, the AI-powered focus assistant that coaches you to peak performance.",
-    url: "https://lock-in.app",
+    url: "https://lock-in.ai",
     siteName: "Lock-in",
     images: [
       {
-        url: "logo@Lock-in-metadata.png",
+        url: "/Lock-in-metadata.png",
         width: 1200,
         height: 630,
         alt: "Lock-in - AI-Powered Focus Assistant",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lock-in | AI focus assistant",
     description: "Transform your productivity with Lock-in, the AI-powered focus assistant that coaches you to peak performance.",
-    images: ["logo@Lock-in-metadata.png"],
+    images: ["/Lock-in-metadata.png"],
   },
   icons: {
     icon: [
@@ -102,6 +102,10 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/lock-in-logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/lock-in-logo.png" />
         <link rel="manifest" href="/manifest.json" />
+        <meta property="og:image" content="https://lock-in.ai/Lock-in-metadata.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://lock-in.ai/Lock-in-metadata.png" />
       </head>
       <body className={`${inter.className}`}>{children}</body>
     </html>
