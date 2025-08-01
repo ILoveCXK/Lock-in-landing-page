@@ -4,6 +4,13 @@
 import { Button } from "@/components/ui/button"
 import { MaintenancePage } from "@/components/maintenance"
 
+// Declare gtag function for TypeScript
+declare global {
+  interface Window {
+    gtag: (command: string, targetId: string, config?: any) => void;
+  }
+}
+
 import Link from "next/link"
 import { useEffect, useRef } from "react"
 import { Alexandria, Lato, Work_Sans, Playfair_Display, Inter } from 'next/font/google'
@@ -609,6 +616,14 @@ export default function Page() {
                 size="lg" 
                 className="group relative overflow-hidden bg-black hover:bg-gray-900 transition-all duration-300 pr-6 sm:pr-8 pl-3 sm:pl-4 text-sm sm:text-base"
                 style={{ height: '54px' }}
+                onClick={() => {
+                  if (typeof window !== 'undefined' && window.gtag) {
+                    window.gtag('event', 'download_click', {
+                      'event_category': 'engagement',
+                      'event_label': window.location.href
+                    });
+                  }
+                }}
               >
                   <span className="relative z-10 flex items-center gap-3 text-white">
                     <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
