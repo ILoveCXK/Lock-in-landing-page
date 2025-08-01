@@ -54,11 +54,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/lock-in-logo.png" },
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/lock-in-logo.png", sizes: "16x16", type: "image/png" },
       { url: "/lock-in-logo.png", sizes: "32x32", type: "image/png" },
     ],
-    shortcut: [{ url: "/lock-in-logo.png" }],
+    shortcut: [{ url: "/favicon.ico" }],
     apple: [
       { url: "/lock-in-logo.png" },
       { url: "/lock-in-logo.png", sizes: "180x180", type: "image/png" },
@@ -98,6 +98,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/lock-in-logo.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/lock-in-logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/lock-in-logo.png" />
