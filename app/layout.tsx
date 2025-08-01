@@ -97,6 +97,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="70f0eb8a-e307-44fe-ba9a-3ee7582c85cf" type="text/javascript" async></script>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GR4PJK5RSH"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GR4PJK5RSH');
+          `
+        }} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/lock-in-logo.png" />
