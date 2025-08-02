@@ -587,7 +587,7 @@ export default function Page() {
           <div className="w-full max-w-[90rem] mx-auto text-center relative z-10 px-4 sm:px-6 lg:px-8">
             {/* Main headline */}
             <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-6 sm:mb-8 mx-auto fade-in delay-1 text-black ${playfairDisplay.className}`} style={{ lineHeight: '1.2', maxWidth: '90rem' }}>
-              Your personal focus assistant,<br />feel your state of mind, find your flow.
+              Your personal focus coach:<br />grind harder without burnout.
             </h1>
 
             {/* Enhanced caption */}
