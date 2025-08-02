@@ -17,7 +17,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Lock-in: your AI focus coach",
   description: "Lock-in keeps you in peak flow. It uses context-aware nudges and adaptive micro-breaks to optimize your attention, so you accomplish more without burning out.",
-  keywords: ["productivity", "focus", "AI assistant", "macOS", "time management", "distraction blocking"],
+  keywords: ["AI focus coach", "productivity app", "focus assistant", "flow state", "burnout prevention", "macOS", "time management", "distraction blocking", "attention optimization", "peak performance", "work-life balance", "focus timer", "pomodoro", "deep work"],
   authors: [{ name: "Lock-in Team" }],
   creator: "Lock-in",
   publisher: "Lock-in",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: "/Lock-in-metadata.png",
         width: 1200,
         height: 630,
-        alt: "Lock-in - AI-Powered Focus Assistant",
+        alt: "Lock-in - Your AI Focus Coach",
       },
     ],
     locale: "en_US",
@@ -108,6 +108,14 @@ export default function RootLayout({
           `
         }} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+        <meta name="title" content="Lock-in: your AI focus coach" />
+        <meta name="description" content="Lock-in keeps you in peak flow. It uses context-aware nudges and adaptive micro-breaks to optimize your attention, so you accomplish more without burning out." />
+        <meta name="keywords" content="AI focus coach, productivity app, focus assistant, flow state, burnout prevention, macOS, time management, distraction blocking, attention optimization, peak performance, work-life balance, focus timer, pomodoro, deep work" />
+        <meta name="robots" content="index, follow" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="author" content="Lock-in Team" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/lock-in-logo.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/lock-in-logo.png" />
