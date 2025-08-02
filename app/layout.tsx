@@ -15,8 +15,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Lock-in | AI focus assistant",
-  description: "Transform your productivity with Lock-in, the AI-powered focus assistant that coaches you to peak performance. Smart insights, personalized guidance, and distraction-free focus sessions.",
+  title: "Lock-in: your AI focus coach",
+  description: "Lock-in keeps you in peak flow. It uses context-aware nudges and adaptive micro-breaks to optimize your attention, so you accomplish more without burning out.",
   keywords: ["productivity", "focus", "AI assistant", "macOS", "time management", "distraction blocking"],
   authors: [{ name: "Lock-in Team" }],
   creator: "Lock-in",
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: "Lock-in | AI focus assistant",
-    description: "Transform your productivity with Lock-in, the AI-powered focus assistant that coaches you to peak performance.",
+    title: "Lock-in: your AI focus coach",
+    description: "Lock-in keeps you in peak flow. It uses context-aware nudges and adaptive micro-breaks to optimize your attention, so you accomplish more without burning out.",
     url: "https://lock-in.ai",
     siteName: "Lock-in",
     images: [
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lock-in | AI focus assistant",
-    description: "Transform your productivity with Lock-in, the AI-powered focus assistant that coaches you to peak performance.",
+    title: "Lock-in: your AI focus coach",
+    description: "Lock-in keeps you in peak flow. It uses context-aware nudges and adaptive micro-breaks to optimize your attention, so you accomplish more without burning out.",
     images: ["/Lock-in-metadata.png"],
   },
   icons: {
