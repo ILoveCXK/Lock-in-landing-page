@@ -97,7 +97,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="70f0eb8a-e307-44fe-ba9a-3ee7582c85cf" type="text/javascript" async></script>
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-GR4PJK5RSH"></script>
         <script dangerouslySetInnerHTML={{
