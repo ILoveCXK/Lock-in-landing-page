@@ -608,7 +608,7 @@ export default function Page() {
                 />
               </a>
                     <a 
-                      href="https://downloads.lock-in/releases/darwin/arm64/Lock-in-1.0.1-arm64.dmg"
+                      href="https://downloads.lock-in.ai/releases/darwin/arm64/Lock-in-1.0.1-arm64.dmg"
                 className="inline-block group"
               >
               <Button 
