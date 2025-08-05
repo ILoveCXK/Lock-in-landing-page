@@ -586,7 +586,7 @@ export default function Page() {
 
           <div className="w-full max-w-[90rem] mx-auto text-center relative z-10 px-4 sm:px-6 lg:px-8">
             {/* Main headline */}
-            <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-6 sm:mb-8 mx-auto fade-in delay-1 text-black ${playfairDisplay.className}`} style={{ lineHeight: '1.2', maxWidth: '90rem' }}>
+            <h1 className={`text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 mx-auto fade-in delay-1 text-black ${playfairDisplay.className}`} style={{ lineHeight: '1.3', maxWidth: '90rem', padding: '0 16px' }}>
               Your personal focus coach:<br />focus longer without burnout.
             </h1>
 
@@ -596,9 +596,9 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-2 sm:mb-3 fade-in delay-3">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mb-6 sm:mb-8 fade-in delay-3">
               {/* Product Hunt Badge */}
-              <a href="https://www.producthunt.com/products/lock-in-2?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-lock&#0045;in&#0045;3" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.producthunt.com/products/lock-in-2?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-lock&#0045;in&#0045;3" target="_blank" rel="noopener noreferrer" className="transform scale-90 sm:scale-100">
                 <img 
                   src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=985936&theme=neutral&t=1753886494723" 
                   alt="Lock&#0045;in - your&#0032;personal&#0032;focus&#0032;assistant | Product Hunt" 
@@ -639,14 +639,14 @@ export default function Page() {
               </div>
 
             {/* Enhanced Demo */}
-            <div className="relative w-full max-w-4xl mx-auto">
+            <div className="relative w-full max-w-4xl mx-auto px-4 sm:px-6 mt-4 sm:mt-8">
               <Image
                 src="/starter-demo.png"
                 alt="Lock-in App Demo"
                 width={800}
                 height={480}
-                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 70vw"
-                className="w-full h-auto rounded-lg sm:rounded-xl lg:rounded-2xl"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 70vw"
+                className="w-full h-auto rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-lg"
                 priority
               />
             </div>
