@@ -576,7 +576,7 @@ export default function Page() {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-32">
+        <section className="relative min-h-[100svh] flex items-start sm:items-center justify-center overflow-hidden pt-32 sm:pt-24 md:pt-32">
           {/* Background Elements */}
           <div className="absolute inset-0">
             <div className="absolute inset-0" style={{
@@ -584,19 +584,13 @@ export default function Page() {
             }}></div>
           </div>
 
-          <div className="w-full max-w-[90rem] mx-auto text-center relative z-10 px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-[90rem] mx-auto text-center relative z-10 px-6 sm:px-6 lg:px-8">
             {/* Main headline */}
-            <h1 className={`text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 mx-auto fade-in delay-1 text-black ${playfairDisplay.className}`} style={{ lineHeight: '1.3', maxWidth: '90rem', padding: '0 16px' }}>
-              Your personal focus coach:<br />focus longer without burnout.
+            <h1 className={`text-[2.5rem] sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 sm:mb-12 mx-auto fade-in delay-1 text-black ${playfairDisplay.className}`} style={{ lineHeight: '1.2', maxWidth: '90rem' }}>
+              Your personal focus assistant,<br />maintain peak focus without burnout.
             </h1>
 
-            {/* Enhanced caption */}
-            <div className="max-w-2xl mx-auto mb-8 sm:mb-12 fade-in delay-2">
-              <p className={`text-lg sm:text-xl leading-relaxed ${lato.className}`} style={{ color: '#6B7280' }}>
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mb-6 sm:mb-8 fade-in delay-3">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-6 mb-8 sm:mb-8 fade-in delay-3">
               {/* Product Hunt Badge */}
               <a href="https://www.producthunt.com/products/lock-in-2?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-lock&#0045;in&#0045;3" target="_blank" rel="noopener noreferrer" className="transform scale-90 sm:scale-100">
                 <img 
@@ -608,7 +602,7 @@ export default function Page() {
                 />
               </a>
                     <a 
-                      href="https://downloads.lock-in.ai/releases/darwin/arm64/Lock-in-1.0.1-arm64.dmg"
+                      href="https://downloads.lock-in.ai/releases/darwin/arm64/Lock-in-1.0.3-arm64.dmg"
                 className="inline-block group"
               >
               <Button 
@@ -639,14 +633,14 @@ export default function Page() {
               </div>
 
             {/* Enhanced Demo */}
-            <div className="relative w-full max-w-4xl mx-auto px-4 sm:px-6 mt-4 sm:mt-8">
+            <div className="relative w-full max-w-4xl mx-auto px-4 sm:px-6 mt-0 sm:mt-8">
               <Image
                 src="/starter-demo.png"
                 alt="Lock-in App Demo"
                 width={800}
                 height={480}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 70vw"
-                className="w-full h-auto rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-lg"
+                className="w-full h-auto"
                 priority
               />
             </div>
@@ -659,9 +653,9 @@ export default function Page() {
         </div>
 
         {/* Features Section */}
-        <section id="features" className="py-12 sm:py-16 lg:py-20 relative bg-background overflow-hidden">
+        <section id="features" className="py-16 sm:py-16 lg:py-20 relative bg-background overflow-hidden">
           <div className="relative z-10">
-            <div className="space-y-12 sm:space-y-16 lg:space-y-20">
+            <div className="space-y-16 sm:space-y-16 lg:space-y-20">
               {features.map((feature, index) => (
                 <div key={index} className="feature-section">
                   {/* Horizontal divider between features */}
